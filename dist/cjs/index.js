@@ -1,0 +1,2 @@
+'use strict';var e=require('react-native');const t=e.Platform.select({web:()=>require('./useComponentSize.web').default,default:()=>require('./useComponentSize.native').default}),r=e.Platform.select({web:()=>require('./useScreenDimensions.web').default,default:()=>require('./useScreenDimensions.native').default});exports.useComponentSize=t,exports.useScreenDimensions=r;
+//# sourceMappingURL=index.js.map

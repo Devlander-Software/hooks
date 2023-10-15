@@ -1,0 +1,3 @@
+[submodule "external-modules/auto-exporter-script"]
+	path = external-modules/auto-exporter-script
+	url = https://gist.github.com/landonwjohnson/2ca297f86cf9e25ae2fcc01752f80908
