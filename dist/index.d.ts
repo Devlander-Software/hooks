@@ -1,3 +1,9 @@
+/// <reference types="react" />
+import { LayoutRectangle, LayoutChangeEvent } from 'react-native';
+import * as react from 'react';
+
+declare const useComponentSizeForNative: () => [LayoutRectangle, (event: LayoutChangeEvent) => void];
+
 /**
  * Platform-specific hook to get the component's size and position.
  *
@@ -50,7 +56,11 @@ interface LayoutType extends ScreenSize {
     width: number;
 }
 
+declare const useComponentSizeForWeb: () => (LayoutType | react.MutableRefObject<HTMLElement | null>)[];
+
 declare const useScreenDimensions: () => any;
+
+declare const useVisibilitySensor: () => any;
 
 interface DimensionData {
     rectTop: number;
@@ -58,4 +68,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, useComponentSize, useScreenDimensions };
+export { type DimensionData, type LayoutType, type ScreenSize, useComponentSize, useComponentSizeForNative, useComponentSizeForWeb, useScreenDimensions, useVisibilitySensor };

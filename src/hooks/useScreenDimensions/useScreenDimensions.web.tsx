@@ -3,7 +3,7 @@ import { ScreenSize } from "../../types/screen-size.type";
 
 
 
-const useScreenDimensions = (): ScreenSize => {
+const useScreenDimensionsForWeb = (): ScreenSize => {
   const [screenSize, setScreenSize] = useState<ScreenSize>({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -29,4 +29,4 @@ const useScreenDimensions = (): ScreenSize => {
   return screenSize;
 };
 
-export default useScreenDimensions;
+export default useScreenDimensionsForWeb;

@@ -1,6 +1,6 @@
 import { Platform } from 'react-native'
 
-const useVisibilitySensor = Platform.select({
+export const useVisibilitySensor = Platform.select({
     web: () => require('./useVisibilitySensor.web').default,
     default: () => require('./useVisibilitySensor.native').default
 })

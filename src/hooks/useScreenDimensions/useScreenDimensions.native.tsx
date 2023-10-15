@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Dimensions, ScaledSize } from "react-native"
 
-const useScreenDimensions = (): ScaledSize => {
+const useScreenDimensionsForNative = (): ScaledSize => {
   const [screenSize, setScreenSize] = useState<ScaledSize>(
     Dimensions.get("window"),
   )
@@ -25,4 +25,4 @@ const useScreenDimensions = (): ScaledSize => {
   return screenSize
 }
 
-export default useScreenDimensions
+export default useScreenDimensionsForNative

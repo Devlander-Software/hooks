@@ -1,2 +1,2 @@
-declare const useVisibilitySensor: () => any;
+export declare const useVisibilitySensor: () => any;
 export default useVisibilitySensor;

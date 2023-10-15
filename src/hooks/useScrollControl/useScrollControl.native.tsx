@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useKeyCodes } from '../useKeyCodes';
-import usePreventDefault from '../usePreventDefault';
+import { usePreventDefault } from '../usePreventDefault';
 
 
 
