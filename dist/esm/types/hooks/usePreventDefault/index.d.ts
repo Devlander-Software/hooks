@@ -1,1 +1,1 @@
-export { default } from './usePreventDefault';
+export { default as usePreventDefault } from './usePreventDefault';

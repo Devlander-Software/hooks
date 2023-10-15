@@ -4,7 +4,7 @@ import { DimensionData } from '../../types/dimension-data.type';
 
 
 
-const useVisibilitySensor = (onChange: (visible: boolean) => void) => {
+const useVisibilitySensorForNative = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
@@ -64,4 +64,4 @@ const useVisibilitySensor = (onChange: (visible: boolean) => void) => {
   return myView
 }
 
-export default useVisibilitySensor;
+export default useVisibilitySensorForNative;
