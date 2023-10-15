@@ -92,7 +92,7 @@ const config = [
             {
                 file: packageJson.browser,
                 format: 'umd',
-                name: "findAnHerbEnv"
+                name: "devlanderHooks"
             }
         ],
         plugins: [
