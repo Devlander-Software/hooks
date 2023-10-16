@@ -1,4 +1,5 @@
-import { Platform } from 'react-native';
+import useScreenDimensionsForNative from './useScreenDimensions.native';
+import useScreenDimensionsForWeb from './useScreenDimensions.web';
 
 
 /**
@@ -16,9 +17,5 @@ import { Platform } from 'react-native';
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
 
-export const useScreenDimensions = Platform.select({
-    web: () => require('./useScreenDimensions.web').default,
-    default: () => require('./useScreenDimensions.native').default
-})
-
+const useScreenDimensions = useScreenDimensionsForNative || useScreenDimensionsForWeb
 export default useScreenDimensions

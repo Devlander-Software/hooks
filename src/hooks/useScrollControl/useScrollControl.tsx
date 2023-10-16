@@ -1,8 +1,6 @@
-import { Platform } from 'react-native'
+import useScreenDimensionsForNative from '../useScreenDimensions/useScreenDimensions.native'
+import useScreenDimensionsForWeb from '../useScreenDimensions/useScreenDimensions.web'
 
-export const useScrollControl = Platform.select({
-    web: () => require('./useScrollControl.web').default,
-    default: () => require('./useScrollControl.native').default
-})
+export const useScrollControl = useScreenDimensionsForNative || useScreenDimensionsForWeb
 
 export default useScrollControl

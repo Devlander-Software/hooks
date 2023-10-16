@@ -12,5 +12,5 @@
  *
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
-export declare const useScreenDimensions: () => any;
+declare const useScreenDimensions: () => import("react-native").ScaledSize;
 export default useScreenDimensions;
