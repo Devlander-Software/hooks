@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
@@ -50,6 +50,7 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
     "@babel/runtime": "^7.22.15",
+    "@devlander/shared-react-native-types": "^1.0.151",
     "@faker-js/faker": "^8.0.2",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-auto-install": "^3.0.4",
@@ -70,10 +71,7 @@
     "network": "^0.6.1",
     "path": "^0.12.7",
     "prettier": "^3.0.1",
-    "react": "^18.2.0",
-    "react-dom": "18.2.0",
     "react-native": "^0.72.6",
-    "react-native-web": "0.19.6",
     "rollup": "^3.29.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-dts": "^6.0.2",
