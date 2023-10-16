@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
@@ -83,6 +83,7 @@
     "rollup-plugin-string": "^3.0.0",
     "rollup-plugin-styles": "^4.0.0",
     "rollup-swc-preserve-directives": "^0.5.0",
+    "scheduler": "^0.23.0",
     "styled-components": "6.0.7",
     "tslib": "^2.6.2",
     "typescript": "5.2.2",

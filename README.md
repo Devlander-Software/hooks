@@ -236,15 +236,12 @@ export default MyComponent;
 Component Folder Structure
 Structure your hooks in the following manner:
 
-***
-
-- useACustomHook
+useACustomHook
     ├── useACustomHook.native.tsx
     ├── useACustomHook.web.tsx
     ├── useACustomHook.tsx
     ├── index.tsx
     └── useACustomHook.spec.tsx
-***
 
 #### Exporting Guidelines:
 Always default export for .native or .web files.
@@ -285,7 +282,7 @@ export default useACustomHook;
 
 
 For the index.tsx in the useACustomHook directory, ensure a default export with the component name:
-``` typescript
+```typescript
 export {default as useACustomHook} from "./useACustomHook" 
 
 ```
