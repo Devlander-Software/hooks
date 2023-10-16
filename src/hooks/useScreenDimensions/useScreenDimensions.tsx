@@ -17,5 +17,5 @@ import useScreenDimensionsForWeb from './useScreenDimensions.web';
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
 
-const useScreenDimensions = useScreenDimensionsForNative || useScreenDimensionsForWeb
+export const useScreenDimensions = useScreenDimensionsForNative || useScreenDimensionsForWeb
 export default useScreenDimensions

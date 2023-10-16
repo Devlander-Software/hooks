@@ -61,6 +61,29 @@ interface UseOnClickByStyleOptions {
     onPress?: () => void;
 }
 
+declare const useOnClickByStyle: () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
+
+declare function usePreventDefault(): {
+    preventDefault: (e: any) => void;
+    preventDefaultForScrollKeys: (e: any) => false | undefined;
+};
+
+/**
+ * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
+ * It's instrumental in monitoring the current screen size, aiding in real-time screen manipulations.
+ *
+ * In many scenarios, it's pivotal to have an understanding of the screen's dimensions for layout,
+ * design responsiveness, and dynamically rendering or positioning components based on the available space.
+ *
+ * @example
+ * ```typescript
+ * const { width, height } = useScreenDimensions();
+ * ```
+ *
+ * @returns {Object} An object containing the `width` and `height` of the screen.
+ */
+declare const useScreenDimensions: () => react_native.ScaledSize;
+
 declare const useScrollControl: () => react_native.ScaledSize;
 
 interface UseVisibilitySensorOptions<T> {
@@ -77,4 +100,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useScrollControl, useVisibilitySensor };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useOnClickByStyle, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensor };
