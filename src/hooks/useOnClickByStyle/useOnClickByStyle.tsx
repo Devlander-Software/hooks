@@ -1,8 +1,6 @@
-import { Platform } from 'react-native'
+import useComponentSizeForNative from '../useComponentSize/useComponentSize.native'
+import useComponentSizeForWeb from '../useComponentSize/useComponentSize.web'
 
-export const useOnClickByStyle = Platform.select({
-    web: () => require('./useOnClickByStyle.web').default,
-    default: () => require('./useOnClickByStyle.native').default
-})
+const useOnClickByStyle = useComponentSizeForNative || useComponentSizeForWeb
 
 export default useOnClickByStyle
