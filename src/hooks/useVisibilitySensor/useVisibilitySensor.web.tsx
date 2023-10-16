@@ -16,7 +16,7 @@ import { UseVisibilitySensorWeb } from './useVisibilitySensor';
  * <div ref={divRef} />
  */
 
-export const useVisibilitySensorForWeb:UseVisibilitySensorWeb = (onChange: (visible: boolean) => void) => {
+ const useVisibilitySensorForWeb:UseVisibilitySensorWeb = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
