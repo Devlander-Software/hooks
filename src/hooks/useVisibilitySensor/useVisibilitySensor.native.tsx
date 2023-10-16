@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, View } from 'react-native';
 import { DimensionData } from '../../types/dimension-data.type';
+import { UseVisibilitySensorNative } from './useVisibilitySensor';
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
@@ -15,7 +16,8 @@ import { DimensionData } from '../../types/dimension-data.type';
  */
 
 
-const useVisibilitySensorForNative = (onChange: (visible: boolean) => void) => {
+
+export const useVisibilitySensorForNative: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
@@ -72,7 +74,7 @@ const useVisibilitySensorForNative = (onChange: (visible: boolean) => void) => {
     }
   }, [dimensions, lastValue, onChange])
 
-  return myView
+  return myView as React.MutableRefObject<View>;
 }
 
 export default useVisibilitySensorForNative;

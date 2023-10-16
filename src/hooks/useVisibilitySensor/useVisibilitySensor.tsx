@@ -1,14 +1,20 @@
-import { Platform } from 'react-native'
-import useComponentSizeForNative from '../useComponentSize/useComponentSize.native'
-import useComponentSizeForWeb from '../useComponentSize/useComponentSize.web'
+import { Platform, View } from 'react-native';
 
-export const useVisibilitySensor = () => {
-    const hook = Platform.select({
-        web: () => require('./useVisibilitySensor.web').default,
-        default: () => require('./useVisibilitySensor.native').default
-    }) as  typeof useComponentSizeForNative || typeof useComponentSizeForWeb
-
-    return hook
+export interface UseVisibilitySensorOptions<T> {
+    (onChange: (visible: boolean) => void): React.RefObject<T>
 }
+
+
+export type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>
+
+export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
+
+type UseVisibilitySensorDefination = UseVisibilitySensorNative | UseVisibilitySensorWeb
+
+
+export const useVisibilitySensor: UseVisibilitySensorDefination = Platform.select({
+    web: () => require('./useVisibilitySensor.web').default,
+    default: () => require('./useVisibilitySensor.native').default
+})
 
 export default useVisibilitySensor

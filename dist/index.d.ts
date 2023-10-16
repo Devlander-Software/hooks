@@ -1,4 +1,5 @@
-import * as react_native from 'react-native';
+/// <reference types="react" />
+import { View } from 'react-native';
 
 /**
  * Platform-specific hook to get the component's size and position.
@@ -79,7 +80,39 @@ declare const useScreenDimensions: () => any;
 
 declare const useScrollControl: () => any;
 
-declare const useVisibilitySensor: () => () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
+interface UseVisibilitySensorOptions<T> {
+    (onChange: (visible: boolean) => void): React.RefObject<T>;
+}
+type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
+type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
+type UseVisibilitySensorDefination = UseVisibilitySensorNative | UseVisibilitySensorWeb;
+declare const useVisibilitySensor: UseVisibilitySensorDefination;
+
+/**
+ * A hook that monitors the visibility of a native React component within the viewport.
+ * It tracks the dimensions of the target component and determines if it's entirely visible.
+ *
+ * @param onChange - Callback that fires when the visibility status of the component changes.
+ * @returns A ref that should be attached to the component being observed.
+ *
+ * @example
+ * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
+ * <View ref={viewRef} />
+ */
+declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
+
+/**
+ * A hook that monitors the visibility of a web React component within the viewport.
+ * It tracks the dimensions of the target component and determines if it's entirely visible.
+ *
+ * @param onChange - Callback that fires when the visibility status of the component changes.
+ * @returns A ref that should be attached to the component being observed.
+ *
+ * @example
+ * const divRef = useVisibilitySensorForWeb(isVisible => console.log(isVisible));
+ * <div ref={divRef} />
+ */
+declare const useVisibilitySensorForWeb: UseVisibilitySensorWeb;
 
 interface DimensionData {
     rectTop: number;
@@ -87,4 +120,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, useComponentSize, useOnClickByStyle, useScreenDimensions, useScrollControl, useVisibilitySensor };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useOnClickByStyle, useScreenDimensions, useScrollControl, useVisibilitySensor, useVisibilitySensorForNative, useVisibilitySensorForWeb };
