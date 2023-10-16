@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, View } from 'react-native';
 import { DimensionData } from '../../types/dimension-data.type';
+import { UseVisibilitySensorWeb } from './useVisibilitySensor';
 
 
 /**
@@ -15,7 +16,7 @@ import { DimensionData } from '../../types/dimension-data.type';
  * <div ref={divRef} />
  */
 
-const useVisibilitySensorForWeb = (onChange: (visible: boolean) => void) => {
+export const useVisibilitySensorForWeb:UseVisibilitySensorWeb = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({

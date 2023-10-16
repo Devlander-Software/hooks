@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import { View } from 'react-native';
+import { UseVisibilitySensorNative } from './useVisibilitySensor';
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
  * It tracks the dimensions of the target component and determines if it's entirely visible.
@@ -11,5 +10,5 @@ import { View } from 'react-native';
  * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
-declare const useVisibilitySensorForNative: (onChange: (visible: boolean) => void) => import("react").RefObject<View>;
+export declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
 export default useVisibilitySensorForNative;

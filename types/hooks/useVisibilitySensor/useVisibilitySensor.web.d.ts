@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import { View } from 'react-native';
+import { UseVisibilitySensorWeb } from './useVisibilitySensor';
 /**
  * A hook that monitors the visibility of a web React component within the viewport.
  * It tracks the dimensions of the target component and determines if it's entirely visible.
@@ -11,5 +10,5 @@ import { View } from 'react-native';
  * const divRef = useVisibilitySensorForWeb(isVisible => console.log(isVisible));
  * <div ref={divRef} />
  */
-declare const useVisibilitySensorForWeb: (onChange: (visible: boolean) => void) => import("react").RefObject<View>;
+export declare const useVisibilitySensorForWeb: UseVisibilitySensorWeb;
 export default useVisibilitySensorForWeb;
