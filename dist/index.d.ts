@@ -1,3 +1,5 @@
+import * as react_native from 'react-native';
+
 /**
  * Platform-specific hook to get the component's size and position.
  *
@@ -77,7 +79,7 @@ declare const useScreenDimensions: () => any;
 
 declare const useScrollControl: () => any;
 
-declare const useVisibilitySensor: () => any;
+declare const useVisibilitySensor: () => () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
 
 interface DimensionData {
     rectTop: number;
