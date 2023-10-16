@@ -9,10 +9,10 @@ export type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>
 
 export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
 
-type UseVisibilitySensorDefination = UseVisibilitySensorNative | UseVisibilitySensorWeb
+type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb
 
 
-export const useVisibilitySensor: UseVisibilitySensorDefination = Platform.select({
+export const useVisibilitySensor: UseVisibilitySensorDefinition = Platform.select({
     web: () => require('./useVisibilitySensor.web').default,
     default: () => require('./useVisibilitySensor.native').default
 })
