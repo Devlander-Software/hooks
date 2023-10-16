@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import * as react_native from 'react-native';
 import { View } from 'react-native';
 
 /**
@@ -40,7 +41,7 @@ import { View } from 'react-native';
  *   return <View onLayout={ref}>Your content here</View>;
  * };
  */
-declare const useComponentSize: () => any;
+declare const useComponentSize: () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
 
 interface ScreenSize {
     width: number;

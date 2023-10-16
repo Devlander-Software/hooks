@@ -37,5 +37,5 @@
  *   return <View onLayout={ref}>Your content here</View>;
  * };
  */
-export declare const useComponentSize: () => any;
+export declare const useComponentSize: () => [import("react-native").LayoutRectangle, (event: import("react-native").LayoutChangeEvent) => void];
 export default useComponentSize;
