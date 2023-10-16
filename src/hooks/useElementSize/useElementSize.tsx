@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { LayoutType } from '../../types/screen-size.type';
 
 
- const useComponentSizeForWeb = () => {
+ export const useElementSize = () => {
   const ref = useRef<HTMLElement | null>(null);
   const [size, setSize] = useState<LayoutType>({
     width: 0,
@@ -37,4 +37,4 @@ import { LayoutType } from '../../types/screen-size.type';
   return [ size, ref ];
 };
 
-export default useComponentSizeForWeb;
+export default useElementSize;

@@ -1,2 +1,5 @@
-export declare const useScrollControl: () => import("react-native").ScaledSize;
+export declare function useScrollControl(): {
+    disableScroll: () => void;
+    enableScroll: () => void;
+};
 export default useScrollControl;

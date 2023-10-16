@@ -18,7 +18,7 @@ interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
  */
 
 
-function useOnClickByStyleForWeb({ className = 'onclick-class', onClick }: UseOnClickByStyleOptionsForWeb) {
+export function useClickByClassName({ className = 'onclick-class', onClick }: UseOnClickByStyleOptionsForWeb) {
     const handleOnClick = useCallback((event: any) => {
         if (event.target && event.target.className && typeof event.target.className.includes === 'function') {
             if (event.target.className.includes(className) && typeof onClick === "function") {
@@ -30,4 +30,4 @@ function useOnClickByStyleForWeb({ className = 'onclick-class', onClick }: UseOn
     return handleOnClick;
 }
 
-export default useOnClickByStyleForWeb;
+export default useClickByClassName;

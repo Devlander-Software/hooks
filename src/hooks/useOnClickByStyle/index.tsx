@@ -1,1 +1,1 @@
-export { default as useOnClickByStyle } from './useOnClickByStyle';
+export { default as useClickOnByStyle } from './useClickOnByStyle';
