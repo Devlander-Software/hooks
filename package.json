@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
@@ -52,6 +52,7 @@
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
     "@babel/runtime": "^7.22.15",
+    "@devlander/hooks": "^0.0.26",
     "@devlander/shared-react-native-types": "^1.0.163",
     "@faker-js/faker": "^8.0.2",
     "@rollup/plugin-alias": "^5.0.0",
