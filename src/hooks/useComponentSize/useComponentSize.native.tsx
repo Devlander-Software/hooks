@@ -2,7 +2,7 @@ import { useCallback, useState } from "react"
 import { LayoutChangeEvent, LayoutRectangle } from "react-native"
 import { LayoutType } from "../../types/screen-size.type"
 
- export const useComponentSizeForNative = (): [
+  const useComponentSizeForNative = (): [
   LayoutRectangle,
   (event: LayoutChangeEvent) => void,
 ] => {

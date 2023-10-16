@@ -1,2 +1,2 @@
-declare const useScrollControl: () => any;
+export declare const useScrollControl: () => any;
 export default useScrollControl;
