@@ -1,7 +1,7 @@
 {
-	"Branch": "(HEAD -> main, origin/main, origin/HEAD)",
-	"Hash": "03d577431c3b2ff8525851a7128862a2e49c3e69",
+	"Branch": "(HEAD -> main, tag: v0.0.27)",
+	"Hash": "4d9e03311dbaf4f7085b3d772185e81253b8fdc0",
 	"CommitUser": "Landon Johnson(landonwjohnson@gmail.com)",
-	"CommitContent": "updated build",
-	"Date": "Sun Oct 15 22:46:40 2023 -0600"
+	"CommitContent": "v0.0.27",
+	"Date": "Mon Oct 16 14:37:07 2023 -0600"
 }
