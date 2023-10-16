@@ -1,7 +1,7 @@
 import { useKeyCodes } from "../useKeyCodes";
 
 // Hook for preventing default behavior
-function usePreventDefault() {
+export function usePreventDefault() {
     function preventDefault(e: any) {
       e.preventDefault();
     }
