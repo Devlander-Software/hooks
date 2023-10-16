@@ -4,7 +4,8 @@
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
-    "pull-submodules": "node ./pull-external-modules.js",
+    "refresh-modules": "node ./refresh-modules.js --modules=\"@devlander/shared-react-native-types\"",
+    "pull-submodules": "node ./pull-external-modules.js && yarn run refresh-modules",
     "build:index": "yarn run pull-submodules && node ./external-modules/auto-exporter-script",
     "increment-version": "yarn version patch",
     "lint": "eslint .",
@@ -86,12 +87,14 @@
     "styled-components": "6.0.7",
     "tslib": "^2.6.2",
     "typescript": "5.2.2",
-    "use-count-up": "^3.0.1"
+    "use-count-up": "^3.0.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.197",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.28",
-    "@types/react-native": "^0.72.3"
+    "@types/react-native": "^0.72.3",
+    "cli-progress": "^3.12.0"
   }
 }

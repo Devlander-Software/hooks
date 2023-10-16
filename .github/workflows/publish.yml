@@ -1,18 +1,32 @@
-name: Publish
+name: Yarn Install and Publish
 
 on:
   push:
     branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-      - run: yarn install
-      - run: npm publish 
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org/' # Specifying npm public registry
+
+      - name: Set Environment Variables
+        run: |
+          echo "NPM_READ_TOKEN=${{ secrets.ORG_NAME.NPM_READ_TOKEN }}" >> $GITHUB_ENV
+          echo "NPM_PUBLISH_TOKEN=${{ secrets.ORG_NAME.NPM_PUBLISH_TOKEN }}" >> $GITHUB_ENV
+          # Replace the placeholders in .yarnrc.yml with actual environment variables
+          sed -i "s/\$NPM_READ_TOKEN/$NPM_READ_TOKEN/" .yarnrc.yml
+          sed -i "s/\$NPM_PUBLISH_TOKEN/$NPM_PUBLISH_TOKEN/" .yarnrc.yml
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Publish to npm
+        run: yarn npm publish

@@ -1,3 +1,9 @@
 [submodule "external-modules/auto-exporter-script"]
 	path = external-modules/auto-exporter-script
 	url = https://gist.github.com/landonwjohnson/2ca297f86cf9e25ae2fcc01752f80908
+[submodule "external-modules/sync-dep-versions"]
+	path = external-modules/sync-dep-versions
+	url = https://gist.github.com/landonwjohnson/6c444d07e8686711347fa474dd5540f5
+[submodule "external-modules/yarn-upgrade-modules"]
+	path = external-modules/yarn-upgrade-modules
+	url = https://gist.github.com/landonwjohnson/701a4ff917b497bf7a722b9445a6933d
