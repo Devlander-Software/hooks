@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.80",
+  "version": "0.0.81",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
