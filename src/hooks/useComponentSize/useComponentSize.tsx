@@ -1,5 +1,4 @@
 import { Platform } from 'react-native';
-
 /**
  * Platform-specific hook to get the component's size and position.
  * 
