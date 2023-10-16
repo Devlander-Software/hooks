@@ -236,7 +236,7 @@ export default MyComponent;
 Component Folder Structure
 Structure your hooks in the following manner:
 
-***plaintext
+***
 
 - useACustomHook
     ├── useACustomHook.native.tsx
