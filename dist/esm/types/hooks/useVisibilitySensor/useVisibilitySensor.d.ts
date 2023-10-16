@@ -8,7 +8,7 @@ import { View } from 'react-native';
  * @returns A ref that should be attached to the component being observed.
  *
  * @example
- * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
+ * const viewRef = useVisibilitySensor(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
 export interface UseVisibilitySensorOptions<T> {
@@ -16,5 +16,5 @@ export interface UseVisibilitySensorOptions<T> {
 }
 export type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-export declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
-export default useVisibilitySensorForNative;
+export declare const useVisibilitySensor: UseVisibilitySensorNative;
+export default useVisibilitySensor;

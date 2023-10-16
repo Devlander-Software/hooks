@@ -84,7 +84,7 @@ declare function useScrollControl(): {
  * @returns A ref that should be attached to the component being observed.
  *
  * @example
- * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
+ * const viewRef = useVisibilitySensor(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
 interface UseVisibilitySensorOptions<T> {
@@ -92,7 +92,7 @@ interface UseVisibilitySensorOptions<T> {
 }
 type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
+declare const useVisibilitySensor: UseVisibilitySensorNative;
 
 interface DimensionData {
     rectTop: number;
@@ -100,4 +100,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useClickByClassName, useElementSize, useKeyCodes, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensorForNative };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useClickByClassName, useElementSize, useKeyCodes, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensor };
