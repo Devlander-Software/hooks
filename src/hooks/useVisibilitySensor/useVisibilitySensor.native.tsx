@@ -17,7 +17,7 @@ import { UseVisibilitySensorNative } from './useVisibilitySensor';
 
 
 
- const useVisibilitySensorForNative: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
+ export const useVisibilitySensorForNative: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
