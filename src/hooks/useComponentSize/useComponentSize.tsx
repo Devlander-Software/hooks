@@ -1,4 +1,5 @@
-import { Platform } from 'react-native';
+import useComponentSizeForNative from './useComponentSize.native';
+import useComponentSizeForWeb from './useComponentSize.web';
 /**
  * Platform-specific hook to get the component's size and position.
  * 
@@ -38,9 +39,6 @@ import { Platform } from 'react-native';
  *   return <View onLayout={ref}>Your content here</View>;
  * };
  */
-export const useComponentSize = Platform.select({
-    web: () => require('./useComponentSize.web').default,
-    default: () => require('./useComponentSize.native').default
-})
+export const useComponentSize = useComponentSizeForNative || useComponentSizeForWeb
 
 export default useComponentSize;
