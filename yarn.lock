@@ -1762,6 +1762,7 @@ __metadata:
     network: ^0.6.1
     path: ^0.12.7
     prettier: ^3.0.1
+    react: ^18.2.0
     react-native: ^0.72.6
     rollup: ^3.29.1
     rollup-plugin-delete: ^2.0.0
@@ -11209,7 +11210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:18.2.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:

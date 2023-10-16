@@ -10,7 +10,7 @@ import { DimensionData } from '../../types/dimension-data.type';
  * @returns A ref that should be attached to the component being observed.
  *
  * @example
- * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
+ * const viewRef = useVisibilitySensor(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
 
@@ -27,7 +27,7 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
 
 
 
- export const useVisibilitySensorForNative: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
+ export const useVisibilitySensor: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
@@ -87,4 +87,4 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
   return myView as React.MutableRefObject<View>;
 }
 
-export default useVisibilitySensorForNative;
+export default useVisibilitySensor;
