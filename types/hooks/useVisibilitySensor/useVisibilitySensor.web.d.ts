@@ -10,5 +10,5 @@ import { UseVisibilitySensorWeb } from './useVisibilitySensor';
  * const divRef = useVisibilitySensorForWeb(isVisible => console.log(isVisible));
  * <div ref={divRef} />
  */
-export declare const useVisibilitySensorForWeb: UseVisibilitySensorWeb;
+declare const useVisibilitySensorForWeb: UseVisibilitySensorWeb;
 export default useVisibilitySensorForWeb;

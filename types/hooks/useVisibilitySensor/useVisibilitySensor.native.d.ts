@@ -10,5 +10,5 @@ import { UseVisibilitySensorNative } from './useVisibilitySensor';
  * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
-export declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
+declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
 export default useVisibilitySensorForNative;
