@@ -1,47 +1,29 @@
 /// <reference types="react" />
-import * as react_native from 'react-native';
+import * as react from 'react';
 import { ScaledSize, View } from 'react-native';
 
+interface UseOnClickByStyleOptions {
+    className?: string;
+    styleName?: string;
+    onClick?: () => void;
+    onPress?: () => void;
+}
+
+interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
+    className?: string;
+    onClick?: () => void;
+}
 /**
- * Platform-specific hook to get the component's size and position.
+ * `useOnClickByStyleForWeb` hook is designed to handle click actions on specific elements within a clickable area on the web.
+ * It ensures the action is only triggered when the user interacts with an element containing a designated className.
  *
- * For web, it uses the `useComponentSize.web` implementation, and
- * for native platforms, it uses the `useComponentSize.native` implementation.
+ * @param {UseOnClickByStyleOptionsForWeb} options - The options for the hook.
+ * @param {string} options.className - The className to look for. Defaults to 'onclick-class'.
+ * @param {() => void} options.onClick - The callback function to execute when the desired class is clicked.
  *
- * @example
- *
- * // On web:
- * import React from 'react';
- * import {useComponentSize} from '@devlander/hooks';
- *
- * const MyComponent: React.FC = () => {
- *   const [ size, ref ] = useComponentSize();
- *
- *   useEffect(() => {
- *     console.log(size); // Logs the component's size and position
- *   }, [size]);
- *
- *   return <div ref={ref}>Your content here</div>;
- * };
- *
- *
- * @example
- *
- * // On native:
- * import React from 'react';
- * import {useComponentSize} from '@devlander/hooks';
- *
- * const MyComponent: React.FC = () => {
- *   const [ size, setSize ] = useComponentSize();
- *
- *   useEffect(() => {
- *     console.log(size); // Logs the component's size and position
- *   }, [size]);
- *
- *   return <View onLayout={ref}>Your content here</View>;
- * };
+ * @returns {Function} A handler function to be used in a clickable component.
  */
-declare const useComponentSize: () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
+declare function useClickByClassName({ className, onClick }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
 
 interface ScreenSize {
     width: number;
@@ -53,6 +35,8 @@ interface LayoutType extends ScreenSize {
     height: number;
     width: number;
 }
+
+declare const useElementSize: () => (LayoutType | react.MutableRefObject<HTMLElement | null>)[];
 
 declare function useKeyCodes(): {
     left: number;
@@ -66,21 +50,10 @@ declare function useKeyCodes(): {
     home: number;
 };
 
-interface UseOnClickByStyleOptions {
-    className?: string;
-    styleName?: string;
-    onClick?: () => void;
-    onPress?: () => void;
-}
-
-declare const useOnClickByStyle: () => [react_native.LayoutRectangle, (event: react_native.LayoutChangeEvent) => void];
-
 declare function usePreventDefault(): {
     preventDefault: (e: any) => void;
     preventDefaultForScrollKeys: (e: any) => false | undefined;
 };
-
-declare const useScreenDimensionsForNative: () => ScaledSize;
 
 /**
  * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
@@ -96,19 +69,12 @@ declare const useScreenDimensionsForNative: () => ScaledSize;
  *
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
-declare const useScreenDimensions: () => react_native.ScaledSize;
+declare const useScreenDimensions: () => ScaledSize;
 
-declare const useScreenDimensionsForWeb: () => ScreenSize;
-
-declare const useScrollControl: () => react_native.ScaledSize;
-
-interface UseVisibilitySensorOptions<T> {
-    (onChange: (visible: boolean) => void): React.RefObject<T>;
-}
-type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
-type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb;
-declare const useVisibilitySensor: UseVisibilitySensorDefinition;
+declare function useScrollControl(): {
+    disableScroll: () => void;
+    enableScroll: () => void;
+};
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
@@ -121,6 +87,11 @@ declare const useVisibilitySensor: UseVisibilitySensorDefinition;
  * const viewRef = useVisibilitySensorForNative(isVisible => console.log(isVisible));
  * <View ref={viewRef} />
  */
+interface UseVisibilitySensorOptions<T> {
+    (onChange: (visible: boolean) => void): React.RefObject<T>;
+}
+type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
+type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
 declare const useVisibilitySensorForNative: UseVisibilitySensorNative;
 
 interface DimensionData {
@@ -129,4 +100,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useKeyCodes, useOnClickByStyle, usePreventDefault, useScreenDimensions, useScreenDimensionsForNative, useScreenDimensionsForWeb, useScrollControl, useVisibilitySensor, useVisibilitySensorForNative };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useClickByClassName, useElementSize, useKeyCodes, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensorForNative };

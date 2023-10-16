@@ -1,6 +1,5 @@
-import useScreenDimensionsForNative from './useScreenDimensions.native';
-import useScreenDimensionsForWeb from './useScreenDimensions.web';
-
+import { useEffect, useState } from "react"
+import { Dimensions, ScaledSize } from "react-native"
 
 /**
  * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
@@ -17,5 +16,28 @@ import useScreenDimensionsForWeb from './useScreenDimensions.web';
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
 
-export const useScreenDimensions = useScreenDimensionsForNative || useScreenDimensionsForWeb
+export const useScreenDimensions = (): ScaledSize => {
+  const [screenSize, setScreenSize] = useState<ScaledSize>(
+    Dimensions.get("window"),
+  )
+
+  useEffect(() => {
+    const onResize = (event: { window: ScaledSize; screen: ScaledSize }) => {
+      setScreenSize((prevSize) => ({
+        ...prevSize,
+        width: event.window.width,
+        height: event.window.height,
+      }))
+    }
+
+    // Subscribe to the event and store the unsubscribe function
+    const unsubscribe = Dimensions.addEventListener("change", onResize)
+
+    // Use the unsubscribe function in the cleanup
+    return () => unsubscribe.remove()
+  }, [])
+
+  return screenSize
+}
+
 export default useScreenDimensions
