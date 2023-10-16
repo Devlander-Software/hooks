@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import * as react_native from 'react-native';
-import { View } from 'react-native';
+import { ScaledSize, View } from 'react-native';
 
 /**
  * Platform-specific hook to get the component's size and position.
@@ -54,6 +54,18 @@ interface LayoutType extends ScreenSize {
     width: number;
 }
 
+declare function useKeyCodes(): {
+    left: number;
+    up: number;
+    right: number;
+    down: number;
+    spacebar: number;
+    pageup: number;
+    pagedown: number;
+    end: number;
+    home: number;
+};
+
 interface UseOnClickByStyleOptions {
     className?: string;
     styleName?: string;
@@ -67,6 +79,8 @@ declare function usePreventDefault(): {
     preventDefault: (e: any) => void;
     preventDefaultForScrollKeys: (e: any) => false | undefined;
 };
+
+declare const useScreenDimensionsForNative: () => ScaledSize;
 
 /**
  * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
@@ -84,6 +98,8 @@ declare function usePreventDefault(): {
  */
 declare const useScreenDimensions: () => react_native.ScaledSize;
 
+declare const useScreenDimensionsForWeb: () => ScreenSize;
+
 declare const useScrollControl: () => react_native.ScaledSize;
 
 interface UseVisibilitySensorOptions<T> {
@@ -100,4 +116,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useOnClickByStyle, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensor };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useComponentSize, useKeyCodes, useOnClickByStyle, usePreventDefault, useScreenDimensions, useScreenDimensionsForNative, useScreenDimensionsForWeb, useScrollControl, useVisibilitySensor };
