@@ -1,4 +1,6 @@
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
+import useVisibilitySensorForNative from './useVisibilitySensor.native';
+import useVisibilitySensorForWeb from './useVisibilitySensor.web';
 
 export interface UseVisibilitySensorOptions<T> {
     (onChange: (visible: boolean) => void): React.RefObject<T>
@@ -12,11 +14,6 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
 type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb
 
 
-export const useVisibilitySensor: UseVisibilitySensorDefinition = Platform.select({
-    web: () => require('./useVisibilitySensor.web').default,
-    native: () => require('./useVisibilitySensor.native').default ,
-    default: () => require('./useVisibilitySensor.native').default 
-
-})
+export const useVisibilitySensor: UseVisibilitySensorDefinition = useVisibilitySensorForNative || useVisibilitySensorForWeb
 
 export default useVisibilitySensor
