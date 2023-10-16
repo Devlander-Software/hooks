@@ -15,6 +15,18 @@ export * from "./hooks/useComponentSize/useComponentSize.web";
  */
 export * from "./hooks/useKeyCodes/useKeyCodes";
 /**
+ * TSDoc for useOnClickByStyle.native
+ */
+export * from "./hooks/useOnClickByStyle/useOnClickByStyle.native";
+/**
+ * TSDoc for useOnClickByStyle
+ */
+export * from "./hooks/useOnClickByStyle/useOnClickByStyle";
+/**
+ * TSDoc for useOnClickByStyle.web
+ */
+export * from "./hooks/useOnClickByStyle/useOnClickByStyle.web";
+/**
  * TSDoc for usePreventDefault
  */
 export * from "./hooks/usePreventDefault/usePreventDefault";
@@ -58,6 +70,10 @@ export * from "./hooks/useVisibilitySensor/useVisibilitySensor.web";
  * TSDoc for dimension-data.type
  */
 export * from "./types/dimension-data.type";
+/**
+ * TSDoc for on-click-by-style-options.type
+ */
+export * from "./types/on-click-by-style-options.type";
 /**
  * TSDoc for screen-size.type
  */

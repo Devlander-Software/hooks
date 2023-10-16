@@ -3,6 +3,17 @@ import { Dimensions, View } from 'react-native';
 import { DimensionData } from '../../types/dimension-data.type';
 
 
+/**
+ * A hook that monitors the visibility of a web React component within the viewport.
+ * It tracks the dimensions of the target component and determines if it's entirely visible.
+ *
+ * @param onChange - Callback that fires when the visibility status of the component changes.
+ * @returns A ref that should be attached to the component being observed.
+ *
+ * @example
+ * const divRef = useVisibilitySensorForWeb(isVisible => console.log(isVisible));
+ * <div ref={divRef} />
+ */
 
 const useVisibilitySensorForWeb = (onChange: (visible: boolean) => void) => {
   const myView = useRef<View>(null)
