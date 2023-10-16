@@ -3,7 +3,7 @@ import { usePreventDefault } from "../usePreventDefault";
 
   
   // Hook for disabling and enabling scroll
-  export  function useScrollControl() {
+  export function useScrollControl(): { disableScroll: () => void; enableScroll: () => void } {
     const { preventDefault, preventDefaultForScrollKeys } = usePreventDefault();
   
     function disableScroll() {
