@@ -29,6 +29,7 @@ function executeCommand(command) {
 function requireModule(modulePath) {
     try {
         require(modulePath);
+        console.log(chalk.green(`Successfully required module "${modulePath}".`)); // Apply green color to success message
     } catch (error) {
         console.error(chalk.red(`Error requiring module "${modulePath}":`), error.message);
         // Depending on your use case, you might want to rethrow the error or exit
@@ -40,13 +41,21 @@ function requireModule(modulePath) {
  * Main function to synchronize dependencies and execute scripts.
  */
 function main() {
+
+    const directoryToSelect = 'external-modules'; // Use __dirname
+    const directories = fs.readdirSync(directoryToSelect, { withFileTypes: true })
+        .filter(dirent => dirent.isDirectory())
+        .map(dirent => dirent.name);
+    console.log(directories)
+
     if (!fs.existsSync(__dirname + '/external-modules')) { // Use __dirname
         console.error(chalk.red('The "external-modules" directory does not exist.'));
         return;
+    } else {
+        chalk.green('The "external-modules" directory exists.'); // Apply green color to success message
     }
 
     // Refresh modules using syncPackageVersions
-    syncPackageVersions('@devlander/shared-react-native-types', './package.json');
 
     const yarnUpgradeModulesPath = __dirname + '/external-modules/yarn-upgrade-modules.js'; // Use __dirname
     const syncDepVersionsIndexPath = __dirname + '/external-modules/sync-dep-versions/index.js'; // Use __dirname
@@ -58,7 +67,7 @@ function main() {
 
     // Execute sync-dep-versions/index.js if it exists
     if (fs.existsSync(syncDepVersionsIndexPath)) {
-        executeCommand(`node ${syncDepVersionsIndexPath} @devlander/react-native-shared-types ./package.json`);
+        syncPackageVersions('@devlander/react-native-shared-types', './package.json');
     }
 }
 
