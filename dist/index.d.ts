@@ -85,8 +85,8 @@ interface UseVisibilitySensorOptions<T> {
 }
 type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-type UseVisibilitySensorDefination = UseVisibilitySensorNative | UseVisibilitySensorWeb;
-declare const useVisibilitySensor: UseVisibilitySensorDefination;
+type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb;
+declare const useVisibilitySensor: UseVisibilitySensorDefinition;
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
