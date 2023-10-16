@@ -1,5 +1,5 @@
 // Hook for detecting key codes
- function useKeyCodes() {
+ export function useKeyCodes() {
     const keys = {
       left: 37,
       up: 38,

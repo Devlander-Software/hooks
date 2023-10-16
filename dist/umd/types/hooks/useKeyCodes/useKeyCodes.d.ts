@@ -1,4 +1,4 @@
-declare function useKeyCodes(): {
+export declare function useKeyCodes(): {
     left: number;
     up: number;
     right: number;
