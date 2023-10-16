@@ -5,6 +5,5 @@ export interface UseVisibilitySensorOptions<T> {
 }
 export type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb;
-export declare const useVisibilitySensor: UseVisibilitySensorDefinition;
+export declare const useVisibilitySensor: (() => UseVisibilitySensorWeb) | undefined;
 export default useVisibilitySensor;

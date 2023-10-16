@@ -85,8 +85,7 @@ interface UseVisibilitySensorOptions<T> {
 }
 type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-type UseVisibilitySensorDefinition = UseVisibilitySensorNative | UseVisibilitySensorWeb;
-declare const useVisibilitySensor: UseVisibilitySensorDefinition;
+declare const useVisibilitySensor: (() => UseVisibilitySensorWeb) | undefined;
 
 interface DimensionData {
     rectTop: number;
