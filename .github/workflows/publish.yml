@@ -15,24 +15,43 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
-          registry-url: 'https://registry.npmjs.org/' # Specifying npm public registry
+          registry-url: 'https://registry.npmjs.org/'
 
-      - name: Construct Secret Names
-        id: construct_secret_names
+      - name: Load .env file if exists
         run: |
-          echo "::set-output name=read_secret_name::${{ github.repository_owner }}.NPM_DEVLANDER_ORG_READ_TOKEN"
-          echo "::set-output name=publish_secret_name::${{ github.repository_owner }}.NPM_DEVLANDER_ORG_PUBLISH_TOKEN"
+          if [ -f .env ]; then
+            set -a
+            source .env
+            set +a
+          fi
 
-      - name: Set Environment Variables
+      - name: Set Environment Variables with fallback to .env
         run: |
-          echo "NPM_READ_TOKEN=${{ secrets[steps.construct_secret_names.outputs.read_secret_name] }}" >> $GITHUB_ENV
-          echo "NPM_PUBLISH_TOKEN=${{ secrets[steps.construct_secret_names.outputs.publish_secret_name] }}" >> $GITHUB_ENV
-          # Replace the placeholders in .yarnrc.yml with actual environment variables
-          sed -i "s/\$NPM_READ_TOKEN/$NPM_READ_TOKEN/" .yarnrc.yml
-          sed -i "s/\$NPM_PUBLISH_TOKEN/$NPM_PUBLISH_TOKEN/" .yarnrc.yml
+          echo "NPM_READ_TOKEN=${{ secrets.NPM_READ_TOKEN || env.NPM_READ_TOKEN }}" >> $GITHUB_ENV
+          echo "NPM_PUBLISH_TOKEN=${{ secrets.NPM_PUBLISH_TOKEN || env.NPM_PUBLISH_TOKEN }}" >> $GITHUB_ENV
 
       - name: Install dependencies
         run: yarn install
 
+      - name: Check and bump version if needed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          CURRENT_VERSION=$(npm view $(node -p "require('./package.json').name") version)
+          LOCAL_VERSION=$(node -p "require('./package.json').version")
+          if [ "$CURRENT_VERSION" == "$LOCAL_VERSION" ]; then
+            npm version patch
+          fi
+
+      - name: Set up .npmrc for authentication
+        run: |
+          echo "@devlander:registry=https://registry.npmjs.org/" > ~/.npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_PUBLISH_TOKEN}" >> ~/.npmrc
+
+      - name: Debug - Display .npmrc
+        run: cat ~/.npmrc
+        continue-on-error: true
+
       - name: Publish to npm
-        run:  npm publish --access public
+        run: npm publish --access public
