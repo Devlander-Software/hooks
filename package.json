@@ -1,13 +1,13 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.107",
+  "version": "0.0.108",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
     "prebuild": "npm cache clean --force",
     "refresh-modules": "node ./refresh-modules.js --modules=\"@devlander/shared-react-native-types\"",
     "pull-submodules": "node ./pull-external-modules.js && yarn run refresh-modules",
-    "build:index": "yarn run pull-submodules && node ./external-modules/auto-exporter-script -d ./src",
+    "build:index": "yarn run pull-submodules && node ./external-modules/auto-exporter-script -d src",
     "increment-version": "yarn version --patch",
     "lint": "eslint .",
     "build:esm": "tsc",
