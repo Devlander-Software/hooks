@@ -1,7 +1,11 @@
 /**
- * TSDoc for useClickByClassName
+ * TSDoc for hooks
  */
-export * from "./hooks/useClickByClassName/useClickByClassName";
+export * from "./hooks/hooks";
+/**
+ * TSDoc for useOnClickByClassName
+ */
+export * from "./hooks/useClickByClassName/useOnClickByClassName";
 /**
  * TSDoc for useElementSize
  */
@@ -11,9 +15,9 @@ export * from "./hooks/useElementSize/useElementSize";
  */
 export * from "./hooks/useKeyCodes/useKeyCodes";
 /**
- * TSDoc for useClickOnByStyle
+ * TSDoc for useOnPressByStyle
  */
-export * from "./hooks/useOnClickByStyle/useClickOnByStyle";
+export * from "./hooks/useOnPressByStyle/useOnPressByStyle";
 /**
  * TSDoc for usePreventDefault
  */

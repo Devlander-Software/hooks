@@ -18,7 +18,7 @@ interface UseOnClickNativeOptions extends UseOnClickByStyleOptions {
  */
 
 
-function useClickOnByStyle({ styleName = 'onClickStyle', onPress }: UseOnClickNativeOptions) {
+export function useOnPressByStyle({ styleName = 'onClickStyle', onPress }: UseOnClickNativeOptions) {
     const handleOnClick = useCallback((event: any) => {
         if (event.currentTarget && event.currentTarget.style) {
             // This is a conceptual approach. In reality, React Native doesn't have this attribute.
@@ -31,4 +31,4 @@ function useClickOnByStyle({ styleName = 'onClickStyle', onPress }: UseOnClickNa
     return handleOnClick;
 }
 
-export default useClickOnByStyle;
+export default useOnPressByStyle;

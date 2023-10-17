@@ -1,1 +1,1 @@
-export { default as useClickByClassName } from './useClickByClassName';
+export { default as useClickByClassName } from './useOnClickByClassName';

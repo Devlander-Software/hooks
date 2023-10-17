@@ -1,6 +1,5 @@
 /// <reference types="react" />
-import * as react from 'react';
-import { ScaledSize, View } from 'react-native';
+import { View } from 'react-native';
 
 interface UseOnClickByStyleOptions {
     className?: string;
@@ -23,7 +22,7 @@ interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
  *
  * @returns {Function} A handler function to be used in a clickable component.
  */
-declare function useClickByClassName({ className, onClick }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
+declare function useOnClickByClassName({ className, onClick }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
 
 interface ScreenSize {
     width: number;
@@ -35,46 +34,6 @@ interface LayoutType extends ScreenSize {
     height: number;
     width: number;
 }
-
-declare const useElementSize: () => (LayoutType | react.MutableRefObject<HTMLElement | null>)[];
-
-declare function useKeyCodes(): {
-    left: number;
-    up: number;
-    right: number;
-    down: number;
-    spacebar: number;
-    pageup: number;
-    pagedown: number;
-    end: number;
-    home: number;
-};
-
-declare function usePreventDefault(): {
-    preventDefault: (e: any) => void;
-    preventDefaultForScrollKeys: (e: any) => false | undefined;
-};
-
-/**
- * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
- * It's instrumental in monitoring the current screen size, aiding in real-time screen manipulations.
- *
- * In many scenarios, it's pivotal to have an understanding of the screen's dimensions for layout,
- * design responsiveness, and dynamically rendering or positioning components based on the available space.
- *
- * @example
- * ```typescript
- * const { width, height } = useScreenDimensions();
- * ```
- *
- * @returns {Object} An object containing the `width` and `height` of the screen.
- */
-declare const useScreenDimensions: () => ScaledSize;
-
-declare function useScrollControl(): {
-    disableScroll: () => void;
-    enableScroll: () => void;
-};
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
@@ -92,7 +51,6 @@ interface UseVisibilitySensorOptions<T> {
 }
 type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>;
 type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>;
-declare const useVisibilitySensor: UseVisibilitySensorNative;
 
 interface DimensionData {
     rectTop: number;
@@ -100,4 +58,4 @@ interface DimensionData {
     rectWidth: number;
 }
 
-export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useClickByClassName, useElementSize, useKeyCodes, usePreventDefault, useScreenDimensions, useScrollControl, useVisibilitySensor };
+export { type DimensionData, type LayoutType, type ScreenSize, type UseOnClickByStyleOptions, type UseVisibilitySensorNative, type UseVisibilitySensorOptions, type UseVisibilitySensorWeb, useOnClickByClassName as useClickByClassName, useOnClickByClassName };
