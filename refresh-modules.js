@@ -67,7 +67,7 @@ function main() {
 
     // Execute sync-dep-versions/index.js if it exists
     if (fs.existsSync(syncDepVersionsIndexPath)) {
-        syncPackageVersions('@devlander/react-native-shared-types', './package.json');
+        syncPackageVersions('@devlander/shared-react-native-types', './package.json');
     }
 }
 
