@@ -13,5 +13,5 @@ interface UseOnClickNativeOptions extends UseOnClickByStyleOptions {
  *
  * @returns {Function} A handler function to be used in a pressable component.
  */
-export declare function useClickOnByStyle({ styleName, onPress }: UseOnClickNativeOptions): (event: any) => void;
-export default useClickOnByStyle;
+export declare function useOnPressByStyle({ styleName, onPress }: UseOnClickNativeOptions): (event: any) => void;
+export default useOnPressByStyle;
