@@ -67,7 +67,9 @@ function main() {
 
     // Execute sync-dep-versions/index.js if it exists
     if (fs.existsSync(syncDepVersionsIndexPath)) {
-        syncPackageVersions('@devlander/shared-react-native-types', './package.json', [], ['react-native', 'react-native-web', 'react', 'react-dom', '@types/react', '@types/react-native', '@rollup/plugin-terser', '@rollup/plugin-auto-install', '@rollup/plugin-babel', '@rollup/plugin-commonjs', '@types/jest', '@typescript-eslint/eslint-plugin', 'react-test-renderer', 'rollup', 'react-native-responsive-fontsize','ts-jest', 'typescript']);
+        syncPackageVersions('@devlander/react', './package.json', [], []);
+        syncPackageVersions('@devlander/rollup', './package.json', [], []);
+
     }
 }
 

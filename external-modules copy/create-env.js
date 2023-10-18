@@ -1,0 +1,1 @@
+ require("@devlander/env-generator")

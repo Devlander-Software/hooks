@@ -1,0 +1,1 @@
+require("@devlander/package-json-type-helper")
