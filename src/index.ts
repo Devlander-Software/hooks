@@ -1,8 +1,4 @@
 /**
- * TSDoc for hooks
- */
-export * from "./hooks/hooks";
-/**
  * TSDoc for useOnClickByClassName
  */
 export * from "./hooks/useClickByClassName/useOnClickByClassName";
