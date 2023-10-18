@@ -4,7 +4,7 @@ const main = () => {
 
     autoExporter({
         directory: './src',
-        includeExtensions: ['.component.ts', '.styles.tsx', '.component.tsx'],
+        includeExtensions: ['.ts', '.tsx', '.tsx'],
         defaultExportFile: 'index.ts',
     })
 }
