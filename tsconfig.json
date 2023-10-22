@@ -1,6 +1,7 @@
 
 
 {
+  "extends": ["@devlander/ts-config-base"],
   "compileOnSave": true,
   "compilerOptions": {
     "jsx": "preserve",

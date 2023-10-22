@@ -5,7 +5,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import generateGitVersion from "rollup-plugin-generate-git-version";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import packageJson from "./package.json";
+import packageJson from "./package.json" assert { type: "json" };
 // @ts-ignore
 import auto from "@rollup/plugin-auto-install";
 import json from "@rollup/plugin-json";
