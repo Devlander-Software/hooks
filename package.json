@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.119",
+  "version": "0.0.120",
   "description": "Hooks used in projects",
   "main": "dist/cjs/index.js",
   "scripts": {
@@ -81,7 +81,6 @@
     "rollup-plugin-generate-package-json": "^3.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-string": "^3.0.0",
-    "rollup-plugin-styles": "^4.0.0",
     "rollup-swc-preserve-directives": "^0.5.0"
   },
   "devDependencies": {
