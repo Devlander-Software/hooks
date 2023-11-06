@@ -1,10 +1,10 @@
 
 
 {
-  "extends": ["@devlander/ts-config-base"],
+
   "compileOnSave": true,
   "compilerOptions": {
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     // If you're not exporting something by default, then assume that you are.
     "allowSyntheticDefaultImports": true,
