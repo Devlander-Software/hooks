@@ -1,10 +1,9 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.122",
+  "version": "0.0.123",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "scripts": {
-    "prebuild": "npm cache clean --force",
     "refresh-modules": "node ./external-modules/refresh-modules.js",
     "build:index": "node ./external-modules/auto-export.js",
     "increment-version": "yarn version --patch",
@@ -13,7 +12,13 @@
     "build": "yarn run build:index && yarn build:esm && yarn build:cjs",
     "build:cjs": "yarn run increment-version && rollup -c ",
     "timeout": "delay 5",
-    "push-main": "git add -A && yarn run timeout && git commit -m 'updated build' && yarn run timeout  && git push origin main"
+    "push-main": "git add -A && yarn run timeout && git commit -m 'updated build' && yarn run timeout  && git push origin main",
+    "rollup": "npx rollup -c rollup.config.mjs",
+    "test": "jest",
+    "prepare": "yarn run build",
+    "patch": "yarn version --new-version patch",
+    "analyze": "size-limit --why",
+    "start-publish": " yarn run build  && yarn version --patch && npm publish"
   },
   "repository": {
     "type": "git",
