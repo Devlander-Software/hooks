@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.134",
+  "version": "0.0.135",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "browser": "dist/umd/index.js",
@@ -19,7 +19,7 @@
     "build:umd": "yarn run increment-version && rollup -c ",
     "timeout": "delay 5",
     "push-main": "git add -A && yarn run timeout && git commit -m 'updated build' && yarn run timeout  && git push origin main",
-    "start-publish": "yarn run lint && yarn run build && yarn run patch && npm publish",
+    "start-publish": "yarn run lint && yarn run build && yarn run increment-version && npm publish",
     "prepare": "yarn run build"
   },
   "repository": {
