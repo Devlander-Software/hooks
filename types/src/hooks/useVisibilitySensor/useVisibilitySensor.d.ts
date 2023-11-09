@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { View } from 'react-native';
+import type { View } from "react-native";
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
  * It tracks the dimensions of the target component and determines if it's entirely visible.

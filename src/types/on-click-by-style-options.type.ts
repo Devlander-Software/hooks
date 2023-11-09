@@ -1,6 +1,6 @@
 export interface UseOnClickByStyleOptions {
-    className?: string;
-    styleName?: string;
-    onClick?: () => void;
-    onPress?: () => void;
+  className?: string
+  styleName?: string
+  onClick?: () => void
+  onPress?: () => void
 }

@@ -15,6 +15,10 @@ export * from "./hooks/useKeyCodes/useKeyCodes";
  */
 export * from "./hooks/useOnPressByStyle/useOnPressByStyle";
 /**
+ * TSDoc for useOrientation
+ */
+export * from "./hooks/useOrientation/useOrientation";
+/**
  * TSDoc for usePreventDefault
  */
 export * from "./hooks/usePreventDefault/usePreventDefault";
@@ -33,7 +37,9 @@ export * from "./hooks/useViewSize/useViewSize";
 /**
  * TSDoc for useVisibilitySensor
  */
+<<<<<<< HEAD
 export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
+<<<<<<<< HEAD:src/index.tsx
 /**
  * TSDoc for dimension-data.type
  */
@@ -46,3 +52,8 @@ export * from "./types/on-click-by-style-options.type";
  * TSDoc for screen-size.type
  */
 export * from "./types/screen-size.type";
+========
+>>>>>>>> 3c807ab56c6e07b331424b3b40445a7d1e59c6d5:dist/umd/typings/index.d.ts
+=======
+export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
+>>>>>>> 3c807ab56c6e07b331424b3b40445a7d1e59c6d5
