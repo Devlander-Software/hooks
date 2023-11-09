@@ -1,4 +1,3 @@
-import alias from "@rollup/plugin-alias";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
@@ -21,24 +20,7 @@ const external = [
 
 const globals = {
   react: "React",
-  "react-native-web": "reactNativeWeb",
-  'react-native-web/dist/exports/Platform': 'ReactNativeWeb.Platform',
-  "react-native-web/dist/exports/View": "ReactNativeWeb.View",
-  "react-native-web/dist/exports/Button": "ReactNativeWeb.Button",
-  "react-native-web/dist/exports/StyleSheet": "ReactNativeWeb.StyleSheet",
-  "react-native-web/dist/exports/Dimensions": "ReactNativeWeb.Dimensions",
-
-  "react-native-web/Libraries/Utilities/codegenNativeComponent": 'ReactNativeWeb.codegenNativeComponent',
-  "react-native-web/dist/exports/useWindowDimensions": "ReactNativeWeb.useWindowDimensions",
-  "react-native-web/dist/exports/TouchableOpacity": "ReactNativeWeb.TouchableOpacity",
-  "react-native-web/dist/exports/FlatList": "ReactNativeWeb.FlatList",
-  "react-native-web/dist/exports/SectionList": "ReactNativeWeb.SectionList",
-  "react-native-web/dist/exports/Text": "ReactNativeWeb.Text",
-  "react-native-web/dist/exports/TouchableHighlight": "ReactNativeWeb.TouchableHighlight",
-  "react-native-web/dist/exports/ScrollView": "ReactNativeWeb.ScrollView",
-  "react-native-web/Libraries/Image/AssetSourceResolver": "ReactNativeWeb.AssetSourceResolver",
-  "react-native-web/Libraries/Image/AssetRegistry": "ReactNativeWeb.AssetRegistry",
-  "react-native-web/Libraries/Image/resolveAssetSource": "ReactNativeWeb.resolveAssetSource",
+  "react-native-web": "reactNativeWeb"
 }
 
 const makeExternalPredicate = externalArr => {
@@ -56,7 +38,7 @@ export default {
     {
       file: packageJson.main,
       format: "umd",
-      name: "RawDesignSystem", // Replace with your library's name
+      name: "DevlanderHooks", // Replace with your library's name
       globals: globals,
       sourcemap: true,
     },
@@ -71,11 +53,11 @@ export default {
 
   external: makeExternalPredicate(external),
   plugins: [
-    alias({
-      entries: [
-        { find: "react-native", replacement: "react-native-web" },
-      ],
-    }),
+    // alias({
+    //   entries: [
+    //     { find: "react-native", replacement: "react-native-web" },
+    //   ],
+    // }),
     nodeResolve({
       extensions,
       preferBuiltins: true,
