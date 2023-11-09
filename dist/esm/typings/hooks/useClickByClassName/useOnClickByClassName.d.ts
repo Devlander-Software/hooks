@@ -1,4 +1,4 @@
-import { UseOnClickByStyleOptions } from '../../types/on-click-by-style-options.type';
+import type { UseOnClickByStyleOptions } from "../../types/on-click-by-style-options.type";
 interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
     className?: string;
     onClick?: () => void;
@@ -13,5 +13,5 @@ interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
  *
  * @returns {Function} A handler function to be used in a clickable component.
  */
-export declare function useOnClickByClassName({ className, onClick }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
+export declare function useOnClickByClassName({ className, onClick, }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
 export default useOnClickByClassName;

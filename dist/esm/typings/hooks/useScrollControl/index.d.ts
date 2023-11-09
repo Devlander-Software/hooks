@@ -1,1 +1,1 @@
-export { default as useScrollControl } from './useScrollControl';
+export { default as useScrollControl } from "./useScrollControl";

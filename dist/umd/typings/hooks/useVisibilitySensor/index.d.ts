@@ -1,1 +1,1 @@
-export { default as useVisibilitySensor } from './useVisibilitySensor';
+export { default as useVisibilitySensor } from "./useVisibilitySensor";
