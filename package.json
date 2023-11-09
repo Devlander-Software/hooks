@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.128",
+  "version": "0.0.129",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "scripts": {
@@ -60,6 +60,7 @@
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/plugin-transform-runtime": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
+    "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
     "@babel/runtime": "^7.22.15",
     "@devlander/collect-exports-for-bundle": "^1.1.68",
