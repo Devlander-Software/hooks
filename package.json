@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.126",
+  "version": "0.0.127",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "scripts": {
