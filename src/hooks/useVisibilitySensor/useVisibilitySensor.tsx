@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Dimensions, View } from 'react-native';
-import { DimensionData } from '../../types/dimension-data.type';
+import { useCallback, useEffect, useRef, useState } from "react"
+import type { View } from "react-native"
+import { Dimensions } from "react-native"
+import type { DimensionData } from "../../types/dimension-data.type"
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
@@ -14,26 +15,23 @@ import { DimensionData } from '../../types/dimension-data.type';
  * <View ref={viewRef} />
  */
 
-
 export interface UseVisibilitySensorOptions<T> {
-    (onChange: (visible: boolean) => void): React.RefObject<T>
+  (onChange: (visible: boolean) => void): React.RefObject<T>
 }
-
 
 export type UseVisibilitySensorNative = UseVisibilitySensorOptions<View>
 
 export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
 
-
-
-
- export const useVisibilitySensor: UseVisibilitySensorNative = (onChange: (visible: boolean) => void) => {
+export const useVisibilitySensor: UseVisibilitySensorNative = (
+  onChange: (visible: boolean) => void,
+) => {
   const myView = useRef<View>(null)
   const [lastValue, setLastValue] = useState<boolean>(false)
   const [dimensions, setDimensions] = useState<DimensionData>({
     rectTop: 0,
     rectBottom: 0,
-    rectWidth: 0
+    rectWidth: 0,
   })
 
   const startWatching = useCallback(() => {
@@ -44,10 +42,10 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
         const newDimensions = {
           rectTop: pageY,
           rectBottom: pageY + height,
-          rectWidth: pageX + width
+          rectWidth: pageX + width,
         }
 
-        setDimensions(prevDimensions => {
+        setDimensions((prevDimensions) => {
           // Check if dimensions actually changed
           if (
             prevDimensions.rectTop !== newDimensions.rectTop ||
@@ -70,7 +68,7 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
   }, [startWatching])
 
   useEffect(() => {
-    const window = Dimensions.get('window')
+    const window = Dimensions.get("window")
     const isVisible =
       dimensions.rectBottom !== 0 &&
       dimensions.rectTop >= 0 &&
@@ -84,7 +82,7 @@ export type UseVisibilitySensorWeb = UseVisibilitySensorOptions<any>
     }
   }, [dimensions, lastValue, onChange])
 
-  return myView as React.MutableRefObject<View>;
+  return myView as React.MutableRefObject<View>
 }
 
-export default useVisibilitySensor;
+export default useVisibilitySensor

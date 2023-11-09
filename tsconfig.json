@@ -1,7 +1,6 @@
 
 
 {
-  "extends": ["@devlander/ts-config-base"],
   "compileOnSave": true,
   "compilerOptions": {
     "jsx": "preserve",
@@ -15,7 +14,7 @@
     // Tells Typescript where to place the .d.ts files.
     // In other words, it will put them in dist/cjs/types & dist/esm/types.
     // dist will also contain a dist/index.d.ts (also occurred in Alex Eagleson tutorial).
-    "declarationDir": "types",
+    "declarationDir": "typings",
     // We will be using Rollup to bundle are javascript files.
     // Thus we don't need Typescript to bundle the javascript files
     // for us.
@@ -39,6 +38,6 @@
     
   },
   "include": ["**/*.ts", "**/*.tsx", "src/rollup.config.js", "**/*.web.ts", "**/*.web.tsx", "**/*.native.ts", "**/*.native.tsx"],
-  "exclude": ["node_modules", "dist", "types", "*/**/.d.ts"],
+  "exclude": ["node_modules", "dist", "types", "*/**/.d.ts", "typings"],
 
 }

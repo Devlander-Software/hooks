@@ -1,5 +1,5 @@
 export interface DimensionData {
-    rectTop: number;
-    rectBottom: number;
-    rectWidth: number;
-  }
+  rectTop: number
+  rectBottom: number
+  rectWidth: number
+}
