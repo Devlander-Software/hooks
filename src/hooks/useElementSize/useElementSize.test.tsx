@@ -1,5 +1,5 @@
-import { act, renderHook } from "@testing-library/react-hooks";
-import { useElementSize } from "./useElementSize";
+import { act, renderHook } from "@testing-library/react-hooks"
+import { useElementSize } from "./useElementSize"
 
 // Mock HTMLElement with just getBoundingClientRect method
 class MockHTMLElement extends HTMLElement {
@@ -13,11 +13,10 @@ class MockHTMLElement extends HTMLElement {
       right: 0,
       top: 0,
       toJSON() {
-        return "";
+        return ""
       },
       y: 20,
-    };
-
+    }
   }
 }
 
