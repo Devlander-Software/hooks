@@ -1,4 +1,4 @@
-import { UseOnClickByStyleOptions } from '../../types/on-click-by-style-options.type';
+import type { UseOnClickByStyleOptions } from "../../types/on-click-by-style-options.type";
 interface UseOnClickNativeOptions extends UseOnClickByStyleOptions {
     styleName: string;
     onPress: () => void;
@@ -13,5 +13,5 @@ interface UseOnClickNativeOptions extends UseOnClickByStyleOptions {
  *
  * @returns {Function} A handler function to be used in a pressable component.
  */
-export declare function useOnPressByStyle({ styleName, onPress }: UseOnClickNativeOptions): (event: any) => void;
+export declare function useOnPressByStyle({ styleName, onPress, }: UseOnClickNativeOptions): (event: any) => void;
 export default useOnPressByStyle;

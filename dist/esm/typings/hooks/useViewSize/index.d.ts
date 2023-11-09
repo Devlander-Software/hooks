@@ -1,1 +1,1 @@
-export { default as useViewSize } from './useViewSize';
+export { default as useViewSize } from "./useViewSize";

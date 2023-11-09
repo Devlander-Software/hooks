@@ -1,4 +1,4 @@
-import { ScaledSize } from "react-native";
+import type { ScaledSize } from "react-native";
 /**
  * `useScreenDimensions` hook provides the dimensions of the screen for React Native development.
  * It's instrumental in monitoring the current screen size, aiding in real-time screen manipulations.
