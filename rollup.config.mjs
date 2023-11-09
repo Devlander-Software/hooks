@@ -4,10 +4,8 @@ import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import generateGitVersion from "rollup-plugin-generate-git-version";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import packageJson from "./package.json" assert { type: "json" };
 // @ts-ignore
-import auto from "@rollup/plugin-auto-install";
 import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { readFileSync } from "fs";
@@ -59,13 +57,17 @@ const generalPlugins = [
   }),
   generateGitVersion({ fileName: "gitVersion.json" }),
   swcPreserveDirectives(),
-  auto(),
-  peerDepsExternal(),
 ];
 
 const commonOutput = {
   treeshake,
   plugins: [...generalPlugins],
+  external: [
+
+    "react-native",
+    "react",
+    "react-native-web",
+  ]
 };
 
 const config = [
@@ -75,10 +77,14 @@ const config = [
     output: [
       {
         file: packageJson.main,
-        format: "cjs",
+        format: "umd",
         sourcemap: true,
+        "name": "DevlanderHooks",
         globals: {
           "react-native": "reactNative", // Map 'react-native' to the global variable 'reactNative'
+          "react": "React", // Map 'react-native' to the global variable 'reactNative'
+          "react-native-web": "reactNativeWeb", // Map 'react-native' to the global variable 'reactNative'
+
         },
       },
       {
@@ -88,27 +94,14 @@ const config = [
         exports: "named",
         globals: {
           "react-native": "reactNative", // Map 'react-native' to the global variable 'reactNative'
+          "react": "React", // Map 'react-native' to the global variable 'reactNative'
+          "react-native-web": "reactNativeWeb", // Map 'react-native' to the global variable 'reactNative'
         },
       },
     ],
     ...commonOutput,
   },
-  // Configuration for the web
-  {
-    input: "./src/index.ts",
-    output: [
-      {
-        file: packageJson.browser,
-        format: "umd",
-        name: "devlanderHooks",
-        globals: {
-          "react-native": "reactNative", // Map 'react-native' to the global variable 'reactNative'
-        },
-      },
-    ],
-    ...commonOutput,
-  },
-  // Configuration for TypeScript declaration files
+
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],

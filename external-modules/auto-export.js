@@ -1,4 +1,4 @@
-const {autoExporter} = require('@devlander/collect-exports-for-bundle');
+const autoExporter = require('@devlander/collect-exports-for-bundle').default
 
 const main = () => {
 
