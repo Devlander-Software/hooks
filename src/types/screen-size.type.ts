@@ -1,12 +1,11 @@
-export interface ScreenSize  {
-    width: number;
-    height: number;
-};
-
+export interface ScreenSize {
+  width: number
+  height: number
+}
 
 export interface LayoutType extends ScreenSize {
-    x:number;
-    y: number;
-    height: number;
-    width: number;
+  x: number
+  y: number
+  height: number
+  width: number
 }
