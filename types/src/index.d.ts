@@ -34,15 +34,3 @@ export * from "./hooks/useViewSize/useViewSize";
  * TSDoc for useVisibilitySensor
  */
 export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
-/**
- * TSDoc for dimension-data.type
- */
-export * from "./types/dimension-data.type";
-/**
- * TSDoc for on-click-by-style-options.type
- */
-export * from "./types/on-click-by-style-options.type";
-/**
- * TSDoc for screen-size.type
- */
-export * from "./types/screen-size.type";
