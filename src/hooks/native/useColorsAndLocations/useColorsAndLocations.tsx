@@ -1,31 +1,35 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 
-export function useColorsAndLocations(
-  colors: string[],
-  locations: number[]
-): { colors: string[]; locations: number[] } {
-  return useMemo(() => {
-    const equalizedColors: string[] = [...colors]; // Create a copy of the colors array
-    const equalizedLocations: number[] = [...locations]; // Create a copy of the locations array
-
-    // If the length of colors is greater than the length of locations
-    if (colors.length > locations.length) {
-      const additionalLocations: number[] = Array.from(
-        { length: colors.length - locations.length },
-        () => 0 // You can set the default value for additional locations here
-      );
-      equalizedLocations.push(...additionalLocations);
-    }
-    // If the length of locations is greater than the length of colors
-    else if (locations.length > colors.length) {
-      const additionalColors: string[] = Array.from(
-        { length: locations.length - colors.length },
-        () => '#FFFFFF' // You can set the default color for additional colors here
-      );
-      equalizedColors.push(...additionalColors);
-    }
-
-    return { colors: equalizedColors, locations: equalizedLocations };
-  }, [colors, locations]);
+export interface ColorsAndLocationsOptions {
+  colors?: string[] | null;
+  locations?: number[] | null;
 }
 
+export function useColorsAndLocations(options: ColorsAndLocationsOptions = {
+  colors: [],
+  locations: [],
+}): { colors: string[]; locations: number[] } {
+
+  return useMemo(() => {
+    const colors = options.colors || [];
+    const locations = options.locations || [];
+
+    const equalizedColors: string[] =
+      colors.length > locations.length
+        ? [
+            ...colors,
+            ...Array.from({ length: colors.length - locations.length }, () => "#FFFFFF"),
+          ]
+        : colors;
+
+    const equalizedLocations: number[] =
+      locations.length > colors.length
+        ? [
+            ...locations,
+            ...Array.from({ length: locations.length - colors.length }, () => 0),
+          ]
+        : locations;
+
+    return { colors: equalizedColors, locations: equalizedLocations };
+  }, [options.colors, options.locations]);
+}
