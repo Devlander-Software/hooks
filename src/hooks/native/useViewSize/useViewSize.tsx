@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 import type { LayoutChangeEvent, LayoutRectangle } from "react-native"
-import type { LayoutType } from "../../types/screen-size.type"
+import type { LayoutType } from "../../../types/screen-size.type"
 
 export const useViewSize = (): [
   LayoutRectangle,
@@ -20,5 +20,3 @@ export const useViewSize = (): [
 
   return [size, onLayout]
 }
-
-export default useViewSize

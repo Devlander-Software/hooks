@@ -1,5 +1,5 @@
 import { useCallback } from "react"
-import type { UseOnClickByStyleOptions } from "../../types/on-click-by-style-options.type"
+import type { UseOnClickByStyleOptions } from "../../../types/on-click-by-style-options.type"
 
 interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
   className?: string

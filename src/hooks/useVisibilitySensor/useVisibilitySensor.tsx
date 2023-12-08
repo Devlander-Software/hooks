@@ -38,25 +38,34 @@ export const useVisibilitySensor: UseVisibilitySensorNative = (
     const intervalId = setInterval(() => {
       if (!myView.current) return
 
-      myView.current.measure((_x, _y, width, height, pageX, pageY) => {
-        const newDimensions = {
-          rectTop: pageY,
-          rectBottom: pageY + height,
-          rectWidth: pageX + width,
-        }
-
-        setDimensions((prevDimensions) => {
-          // Check if dimensions actually changed
-          if (
-            prevDimensions.rectTop !== newDimensions.rectTop ||
-            prevDimensions.rectBottom !== newDimensions.rectBottom ||
-            prevDimensions.rectWidth !== newDimensions.rectWidth
-          ) {
-            return newDimensions
+      myView.current.measure(
+        (
+          _x: number,
+          _y: number,
+          width: number,
+          height: number,
+          pageX: number,
+          pageY: number,
+        ) => {
+          const newDimensions = {
+            rectTop: pageY,
+            rectBottom: pageY + height,
+            rectWidth: pageX + width,
           }
-          return prevDimensions
-        })
-      })
+
+          setDimensions((prevDimensions) => {
+            // Check if dimensions actually changed
+            if (
+              prevDimensions.rectTop !== newDimensions.rectTop ||
+              prevDimensions.rectBottom !== newDimensions.rectBottom ||
+              prevDimensions.rectWidth !== newDimensions.rectWidth
+            ) {
+              return newDimensions
+            }
+            return prevDimensions
+          })
+        },
+      )
     }, 1000)
 
     return () => clearInterval(intervalId)

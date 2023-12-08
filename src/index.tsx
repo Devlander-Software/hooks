@@ -1,19 +1,15 @@
 /**
- * TSDoc for useOnClickByClassName
- */
-export * from "./hooks/useClickByClassName/useOnClickByClassName";
-/**
- * TSDoc for useElementSize
- */
-export * from "./hooks/useElementSize/useElementSize";
-/**
- * TSDoc for useKeyCodes
- */
-export * from "./hooks/useKeyCodes/useKeyCodes";
-/**
  * TSDoc for useOnPressByStyle
  */
-export * from "./hooks/useOnPressByStyle/useOnPressByStyle";
+export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle";
+/**
+ * TSDoc for useSrcResolver
+ */
+export * from "./hooks/native/useSrcResolver/useSrcResolver";
+/**
+ * TSDoc for useViewSize
+ */
+export * from "./hooks/native/useViewSize/useViewSize";
 /**
  * TSDoc for useOrientation
  */
@@ -27,33 +23,18 @@ export * from "./hooks/usePreventDefault/usePreventDefault";
  */
 export * from "./hooks/useScreenDimensions/useScreenDimensions";
 /**
- * TSDoc for useScrollControl
- */
-export * from "./hooks/useScrollControl/useScrollControl";
-/**
- * TSDoc for useViewSize
- */
-export * from "./hooks/useViewSize/useViewSize";
-/**
  * TSDoc for useVisibilitySensor
  */
-<<<<<<< HEAD
 export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
-<<<<<<<< HEAD:src/index.tsx
 /**
- * TSDoc for dimension-data.type
+ * TSDoc for useOnClickByClassName
  */
-export * from "./types/dimension-data.type";
+export * from "./hooks/web/useClickByClassName/useOnClickByClassName";
 /**
- * TSDoc for on-click-by-style-options.type
+ * TSDoc for useKeyCodes
  */
-export * from "./types/on-click-by-style-options.type";
+export * from "./hooks/web/useKeyCodes/useKeyCodes";
 /**
- * TSDoc for screen-size.type
+ * TSDoc for useScrollControl
  */
-export * from "./types/screen-size.type";
-========
->>>>>>>> 3c807ab56c6e07b331424b3b40445a7d1e59c6d5:dist/umd/typings/index.d.ts
-=======
-export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
->>>>>>> 3c807ab56c6e07b331424b3b40445a7d1e59c6d5
+export * from "./hooks/web/useScrollControl/useScrollControl";

@@ -41,4 +41,3 @@ export const useScreenDimensions = (): ScaledSize => {
   return screenSize
 }
 
-export default useScreenDimensions
