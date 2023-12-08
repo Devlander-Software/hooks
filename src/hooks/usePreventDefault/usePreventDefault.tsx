@@ -1,4 +1,4 @@
-import { useKeyCodes } from "../useKeyCodes"
+import { useKeyCodes } from "../web/useKeyCodes"
 
 // Hook for preventing default behavior
 export function usePreventDefault() {

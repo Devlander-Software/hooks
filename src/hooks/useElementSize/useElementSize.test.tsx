@@ -1,5 +1,5 @@
 import { act, renderHook } from "@testing-library/react-hooks"
-import { useElementSize } from "./useElementSize"
+import { useElementSize } from "./useElementSize.web"
 
 // Mock HTMLElement with just getBoundingClientRect method
 class MockHTMLElement extends HTMLElement {
