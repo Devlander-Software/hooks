@@ -14,4 +14,3 @@ import type { ScaledSize } from "react-native";
  * @returns {Object} An object containing the `width` and `height` of the screen.
  */
 export declare const useScreenDimensions: () => ScaledSize;
-export default useScreenDimensions;

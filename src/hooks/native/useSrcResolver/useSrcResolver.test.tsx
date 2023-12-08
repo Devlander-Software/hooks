@@ -45,12 +45,12 @@ describe("useSrcResolver hook", () => {
   it("handles promise resolution correctly", async () => {
     const promiseFunction = () => {
       return new Promise<string>((resolve) => {
-        resolve("https://example.com/image.jpg");
-      });
+        resolve("https://example.com/image.jpg")
+      })
     }
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useSrcResolver(promiseFunction)
+      useSrcResolver(promiseFunction),
     )
 
     expect(result.current).toEqual({
@@ -71,12 +71,12 @@ describe("useSrcResolver hook", () => {
   it("handles promise rejection correctly", async () => {
     const promiseFunction = () => {
       return new Promise<string>((_, reject) => {
-        reject(new Error("Failed to load image"));
-      });
+        reject(new Error("Failed to load image"))
+      })
     }
 
     const { result, waitForNextUpdate } = renderHook(() =>
-      useSrcResolver(promiseFunction)
+      useSrcResolver(promiseFunction),
     )
 
     expect(result.current).toEqual({
