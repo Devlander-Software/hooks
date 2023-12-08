@@ -1,1 +1,1 @@
-export { default as useScreenDimensions } from "./useScreenDimensions";
+export { useScreenDimensions } from "./useScreenDimensions";
