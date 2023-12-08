@@ -1,1 +1,1 @@
-export { useColorsAndLocations } from "./useColorsAndLocations";
+export { useColorsAndLocations } from "./useColorsAndLocations"

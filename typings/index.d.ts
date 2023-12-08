@@ -1,4 +1,8 @@
 /**
+ * TSDoc for useColorsAndLocations
+ */
+export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations";
+/**
  * TSDoc for useOnPressByStyle
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle";
