@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.171",
+  "version": "0.0.172",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "browser": "dist/umd/index.js",
@@ -100,6 +100,7 @@
     "eslint-plugin-testing-library": "^6.1.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^23.0.1",
     "prettier": "^3.0.3",
     "react": "18.2.0",
