@@ -15,6 +15,10 @@ export * from "./hooks/native/useSrcResolver/useSrcResolver";
  */
 export * from "./hooks/native/useViewSize/useViewSize";
 /**
+ * TSDoc for useFormattedParagraphs
+ */
+export * from "./hooks/shared/useFormattedParagraphs/useFormattedParagraphs";
+/**
  * TSDoc for useOrientation
  */
 export * from "./hooks/useOrientation/useOrientation";

@@ -1,0 +1,1 @@
+export { useFormattedParagraphs } from "./useFormattedParagraphs";
