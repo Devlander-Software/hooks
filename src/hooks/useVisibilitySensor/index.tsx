@@ -1,2 +1,1 @@
-export { useVisibilitySensor } from "./useVisibilitySensor";
-
+export { useVisibilitySensor } from "./useVisibilitySensor"

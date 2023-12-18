@@ -1,1 +1,1 @@
-export { useFormattedParagraphs } from "./useFormattedParagraphs";
+export { useFormattedParagraphs } from "./useFormattedParagraphs"

@@ -1,5 +1,5 @@
-import { renderHook } from "@testing-library/react-hooks";
-import { useFormattedParagraphs } from "./useFormattedParagraphs";
+import { renderHook } from "@testing-library/react-hooks"
+import { useFormattedParagraphs } from "./useFormattedParagraphs"
 
 describe("useFormattedParagraphs", () => {
   it("should format paragraphs with proper spacing", () => {
@@ -7,9 +7,9 @@ describe("useFormattedParagraphs", () => {
       Line 2
 
       Line 3
-    `;
+    `
 
-    const { result } = renderHook(() => useFormattedParagraphs(description));
+    const { result } = renderHook(() => useFormattedParagraphs(description))
 
     // Ensure that paragraphs are formatted with proper spacing
     expect(result.current).toMatchInlineSnapshot(`
@@ -17,22 +17,22 @@ describe("useFormattedParagraphs", () => {
       Line 2
 
       Line 3"
-    `);
-  });
+    `)
+  })
 
   it("should handle empty description", () => {
-    const { result } = renderHook(() => useFormattedParagraphs());
+    const { result } = renderHook(() => useFormattedParagraphs())
 
     // Ensure that it handles empty description and returns an empty string
-    expect(result.current).toBe("");
-  });
+    expect(result.current).toBe("")
+  })
 
   it("should handle description with no line breaks", () => {
-    const description = "Single line description";
+    const description = "Single line description"
 
-    const { result } = renderHook(() => useFormattedParagraphs(description));
+    const { result } = renderHook(() => useFormattedParagraphs(description))
 
     // Ensure that it handles a description with no line breaks
-    expect(result.current).toBe("Single line description");
-  });
-});
+    expect(result.current).toBe("Single line description")
+  })
+})
