@@ -1,19 +1,18 @@
-import { render } from '@testing-library/react';
-import { useFormattedParagraphs } from './useFormattedParagraphs';
+import { renderHook } from "@testing-library/react-hooks";
+import { useFormattedParagraphs } from "./useFormattedParagraphs";
 
-describe('useFormattedParagraphs', () => {
-  it('should format paragraphs with proper spacing', () => {
+describe("useFormattedParagraphs", () => {
+  it("should format paragraphs with proper spacing", () => {
     const description = `Line 1
       Line 2
 
       Line 3
     `;
 
-    const { container } = render(<div>{useFormattedParagraphs(description)}</div>);
-    const textContent = container.textContent;
+    const { result } = renderHook(() => useFormattedParagraphs(description));
 
     // Ensure that paragraphs are formatted with proper spacing
-    expect(textContent).toMatchInlineSnapshot(`
+    expect(result.current).toMatchInlineSnapshot(`
       "Line 1
       Line 2
 
@@ -21,21 +20,19 @@ describe('useFormattedParagraphs', () => {
     `);
   });
 
-  it('should handle empty description', () => {
-    const { container } = render(<div>{useFormattedParagraphs()}</div>);
-    const textContent = container.textContent;
+  it("should handle empty description", () => {
+    const { result } = renderHook(() => useFormattedParagraphs());
 
     // Ensure that it handles empty description and returns an empty string
-    expect(textContent).toBe('');
+    expect(result.current).toBe("");
   });
 
-  it('should handle description with no line breaks', () => {
-    const description = 'Single line description';
+  it("should handle description with no line breaks", () => {
+    const description = "Single line description";
 
-    const { container } = render(<div>{useFormattedParagraphs(description)}</div>);
-    const textContent = container.textContent;
+    const { result } = renderHook(() => useFormattedParagraphs(description));
 
     // Ensure that it handles a description with no line breaks
-    expect(textContent).toBe('Single line description');
+    expect(result.current).toBe("Single line description");
   });
 });
