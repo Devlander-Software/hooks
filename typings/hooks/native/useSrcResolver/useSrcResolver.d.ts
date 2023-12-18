@@ -1,11 +1,13 @@
 import type { ImageURISource } from "react-native";
 type SrcType = null | string | ImageURISource | (() => string) | (() => Promise<string>);
-export declare const useSrcResolver: (src: SrcType) => {
+interface ErrorType {
+    key: string;
+    error: Error;
+}
+interface SrcResolverReturnType {
     loading: boolean;
-    errors: {
-        key: string;
-        error: Error;
-    }[];
+    errors: ErrorType[];
     resolvedSrc: string | null | undefined;
-};
+}
+export declare const useSrcResolver: (src: SrcType) => SrcResolverReturnType;
 export {};

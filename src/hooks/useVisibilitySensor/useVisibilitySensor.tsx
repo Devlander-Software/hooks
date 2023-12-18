@@ -94,4 +94,3 @@ export const useVisibilitySensor: UseVisibilitySensorNative = (
   return myView as React.MutableRefObject<View>
 }
 
-export default useVisibilitySensor
