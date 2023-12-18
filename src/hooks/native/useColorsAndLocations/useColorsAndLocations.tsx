@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo } from "react"
 
 export interface ColorsAndLocationsOptions {
-  colors: string[] | null | undefined;
-  locations: number[] | null | undefined;
+  colors: string[] | null | undefined
+  locations: number[] | null | undefined
 }
 
 /**
@@ -15,27 +15,29 @@ export interface ColorsAndLocationsOptions {
  * @returns An object with `colors` and `locations` arrays of equal length.
  */
 export function useColorsAndLocations(options: ColorsAndLocationsOptions): {
-  colors: string[];
-  locations: number[];
+  colors: string[]
+  locations: number[]
 } {
   return useMemo(() => {
-    const colors = options.colors || [];
-    let locations = options.locations || [];
-    const maxLength = Math.max(colors.length, locations.length);
+    const colors = options.colors || []
+    let locations = options.locations || []
+    const maxLength = Math.max(colors.length, locations.length)
 
     if (locations.length < colors.length) {
       // Ensure that `locations` ends with a `1`
-      locations = [...locations, 1];
+      locations = [...locations, 1]
     }
 
-    const equalizedColors = Array.from({ length: maxLength }, (_, index) =>
-      colors[index] || "#FFFFFF"
-    );
+    const equalizedColors = Array.from(
+      { length: maxLength },
+      (_, index) => colors[index] || "#FFFFFF",
+    )
 
-    const equalizedLocations = Array.from({ length: maxLength }, (_, index) =>
-      locations[index] || 0
-    );
+    const equalizedLocations = Array.from(
+      { length: maxLength },
+      (_, index) => locations[index] || 0,
+    )
 
-    return { colors: equalizedColors, locations: equalizedLocations };
-  }, [options.colors, options.locations]);
+    return { colors: equalizedColors, locations: equalizedLocations }
+  }, [options.colors, options.locations])
 }

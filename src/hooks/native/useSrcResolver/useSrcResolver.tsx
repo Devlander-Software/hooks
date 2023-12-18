@@ -8,15 +8,20 @@ type SrcType =
   | (() => string)
   | (() => Promise<string>)
 
-export const useSrcResolver = (
-  src: SrcType,
-): {
+interface ErrorType {
+  key: string
+  error: Error
+}
+
+interface SrcResolverReturnType {
   loading: boolean
-  errors: { key: string; error: Error }[]
+  errors: ErrorType[]
   resolvedSrc: string | null | undefined
-} => {
+}
+
+export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
   const [loading, setLoading] = useState<boolean>(false)
-  const [errors, setErrors] = useState<{ key: string; error: Error }[]>([])
+  const [errors, setErrors] = useState<ErrorType[]>([])
   const [resolvedSrc, setResolvedSrc] = useState<string | null | undefined>(
     null,
   )
@@ -28,8 +33,8 @@ export const useSrcResolver = (
         if (typeof src === "string") {
           setResolvedSrc(src)
         } else if (typeof src === "object" && src !== null && "uri" in src) {
-          if (src && src.uri && src.uri !== undefined) {
-            setResolvedSrc((src as ImageURISource).uri)
+          if (src.uri && src.uri !== undefined) {
+            setResolvedSrc(src.uri)
           }
         } else if (typeof src === "function") {
           const result = await (src as () => Promise<string>)()
