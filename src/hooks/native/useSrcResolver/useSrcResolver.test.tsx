@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react-hooks"
-import { useSrcResolver } from "./useSrcResolver"
+import { useSrcResolver } from "./useSrcResolver.hook"
 
 describe("useSrcResolver hook", () => {
   it("returns the string when src is a string", () => {

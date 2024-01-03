@@ -1,1 +1,2 @@
-export { useViewSize } from "./useViewSize"
+export { useViewSize } from "./useViewSize.hook";
+

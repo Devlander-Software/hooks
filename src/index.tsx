@@ -1,7 +1,7 @@
 /**
  * TSDoc for useColorsAndLocations
  */
-export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations";
+export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
 /**
  * TSDoc for useOnPressByStyle
  */
@@ -9,11 +9,11 @@ export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle";
 /**
  * TSDoc for useSrcResolver
  */
-export * from "./hooks/native/useSrcResolver/useSrcResolver";
+export * from "./hooks/native/useSrcResolver/useSrcResolver.hook";
 /**
  * TSDoc for useViewSize
  */
-export * from "./hooks/native/useViewSize/useViewSize";
+export * from "./hooks/native/useViewSize/useViewSize.hook";
 /**
  * TSDoc for useFormattedParagraphs
  */
