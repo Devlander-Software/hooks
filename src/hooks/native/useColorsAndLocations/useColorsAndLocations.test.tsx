@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks"
-import type { ColorsAndLocationsOptions } from "./useColorsAndLocations"
-import { useColorsAndLocations } from "./useColorsAndLocations"
+import type { ColorsAndLocationsOptions } from "./useColorsAndLocations.hook"
+import { useColorsAndLocations } from "./useColorsAndLocations.hook"
 
 // Note: You don't need to import 'jsdom-global' or handle cleanup
 
