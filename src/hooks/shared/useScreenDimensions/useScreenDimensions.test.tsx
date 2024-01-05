@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react-hooks"
-import { useScreenDimensions } from "./useScreenDimensions" // Import your hook
+import { useScreenDimensions } from "./useScreenDimensions.hook"; // Import your hook
 
 // Mock Dimensions module for React Native Web
 jest.mock("react-native-web", () => ({
