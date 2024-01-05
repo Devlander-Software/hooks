@@ -29,11 +29,11 @@ export * from "./hooks/usePreventDefault/usePreventDefault";
 /**
  * TSDoc for useScreenDimensions
  */
-export * from "./hooks/useScreenDimensions/useScreenDimensions";
+export * from "./hooks/shared/useScreenDimensions/useScreenDimensions.hook";
 /**
  * TSDoc for useVisibilitySensor
  */
-export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
+export * from "./hooks/shared/useVisibilitySensor/useVisibilitySensor.hook";
 /**
  * TSDoc for useOnClickByClassName
  */

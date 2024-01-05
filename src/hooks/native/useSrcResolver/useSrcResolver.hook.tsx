@@ -1,66 +1,84 @@
-import { useEffect, useState } from "react"
-import type { ImageURISource } from "react-native"
+import { useEffect, useState } from "react";
 
-type SrcType =
-  | null
-  | string
-  | ImageURISource
-  | (() => string)
-  | (() => Promise<string>)
+/**
+ * Type definition for a video playback source which could be a number or an object with a URI.
+ */
+type VideoPlaybackSource = number | AVPlaybackSourceObject;
 
+/**
+ * Represents a source object for AV playback with an optional override for the file extension on Android and headers.
+ */
+type AVPlaybackSourceObject = {
+  uri: string;
+  overrideFileExtensionAndroid?: string;
+  headers?: Record<string, string>;
+};
+
+/**
+ * SrcType can be one of the following:
+ * - A string URL
+ * - A function returning a string or a promise that resolves to a string
+ * - A VideoPlaybackSource object
+ * - An ImageURISource object from react-native
+ * - null
+ */
+type SrcType = null | string | VideoPlaybackSource | ImageURISource | (() => string) | (() => Promise<string>);
+
+/**
+ * Defines the structure for an error object related to source resolution.
+ */
 interface ErrorType {
-  key: string
-  error: Error
+  key: string;
+  error: Error;
 }
 
+/**
+ * Defines the return type for the useSrcResolver hook.
+ */
 interface SrcResolverReturnType {
-  loading: boolean
-  errors: ErrorType[]
-  resolvedSrc: string | null | undefined
+  loading: boolean;
+  errors: ErrorType[];
+  resolvedSrc?: string;
 }
 
+/**
+ * Hook to resolve the source for media playback, handling various source types including remote URLs and local assets.
+ * @param src - The source which can be a string, object, function, or null.
+ * @returns An object containing the resolved source, loading state, and any errors encountered.
+ */
 export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [errors, setErrors] = useState<ErrorType[]>([])
-  const [resolvedSrc, setResolvedSrc] = useState<string | null | undefined>(
-    null,
-  )
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errors, setErrors] = useState<ErrorType[]>([]);
+  const [resolvedSrc, setResolvedSrc] = useState<string | undefined>();
 
   useEffect(() => {
     const resolveSrc = async () => {
-      setLoading(true)
+      setLoading(true);
+      setErrors([]);
+      
       try {
-        if (typeof src === "string") {
-          setResolvedSrc(src)
-        } else if (typeof src === "object" && src !== null && "uri" in src) {
-          if (src.uri && src.uri !== undefined) {
-            setResolvedSrc(src.uri)
-          }
-        } else if (typeof src === "function") {
-          const result = await (src as () => Promise<string>)()
-          setResolvedSrc(result)
-        } else if (src instanceof Promise) {
-          const result = await src
-          setResolvedSrc(result)
+        if (typeof src === 'string') {
+          setResolvedSrc(src);
+        } else if (src && typeof src === 'object' && 'uri' in src) {
+          setResolvedSrc(src.uri);
+        } else if (typeof src === 'function') {
+          const result = await src();
+          setResolvedSrc(result);
         }
       } catch (error) {
-        // Handle promise rejection or other errors
-        console.error("Error resolving source:", error)
-        setErrors((prevErrors) => [
-          ...prevErrors,
-          { key: "resolve", error: error as Error },
-        ])
+        console.error('Error resolving source:', error);
+        setErrors(prevErrors => [...prevErrors, { key: 'resolve', error: error instanceof Error ? error : new Error(String(error)) }]);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
-    resolveSrc()
-  }, [src])
+    resolveSrc();
+  }, [src]);
 
   return {
     loading,
     errors,
     resolvedSrc,
-  }
-}
+  };
+};
