@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import type { View } from "react-native"
 import { Dimensions } from "react-native"
-import type { DimensionData } from "../../../types/dimension-data.type"
+import type { DimensionData } from "../../types/dimension-data.type"
 
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
