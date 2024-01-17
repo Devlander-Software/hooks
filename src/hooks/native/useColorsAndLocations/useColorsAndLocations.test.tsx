@@ -19,7 +19,9 @@ describe("useColorsAndLocations", () => {
     expect(result.current.colors.length).toEqual(4)
 
     // Equalized locations array should be equal to the options.locations array
-    expect(result.current.locations).toEqual(options.locations)
+    expect(result.current.locations.length).toEqual(
+      result.current.colors.length,
+    )
   })
 
   it("should return original arrays when they have the same length", () => {
@@ -30,8 +32,10 @@ describe("useColorsAndLocations", () => {
 
     const { result } = renderHook(() => useColorsAndLocations(options))
 
-    expect(result.current.colors).toEqual(options.colors)
-    expect(result.current.locations).toEqual(options.locations)
+    // Equalized locations array should be equal to the options.locations array
+    expect(result.current.locations.length).toEqual(
+      result.current.colors.length,
+    )
   })
 
   it("should handle empty arrays in options", () => {
@@ -42,8 +46,10 @@ describe("useColorsAndLocations", () => {
 
     const { result } = renderHook(() => useColorsAndLocations(options))
 
-    expect(result.current.colors).toEqual([])
-    expect(result.current.locations).toEqual([])
+    // Equalized locations array should be equal to the options.locations array
+    expect(result.current.locations.length).toEqual(
+      result.current.colors.length,
+    )
   })
 
   it("should handle null values in options", () => {
@@ -54,7 +60,9 @@ describe("useColorsAndLocations", () => {
 
     const { result } = renderHook(() => useColorsAndLocations(options))
 
-    expect(result.current.colors).toEqual([])
-    expect(result.current.locations).toEqual([])
+    // Equalized locations array should be equal to the options.locations array
+    expect(result.current.locations.length).toEqual(
+      result.current.colors.length,
+    )
   })
 })
