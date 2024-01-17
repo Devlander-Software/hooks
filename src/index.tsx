@@ -12,7 +12,7 @@ export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle";
 export * from "./hooks/native/useSrcResolver/useSrcResolver.hook";
 /**
  * TSDoc for useViewSize
- */
+*/
 export * from "./hooks/native/useViewSize/useViewSize.hook";
 /**
  * TSDoc for useFormattedParagraphs
