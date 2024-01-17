@@ -26,10 +26,6 @@ export const useScreenDimensions = (
   options?: UseScreenDimensionsOptions,
 ): ScaledSize => {
   // Check if options exist and are not empty
-  const optionsExistAndNotEmpty = useMemo(
-    () => options && Object.keys(options).length > 0,
-    [options],
-  )
 
   // Determine the scaleType, default to "window" if not provided or invalid
   const scaleType = useMemo(() => {
@@ -39,7 +35,7 @@ export const useScreenDimensions = (
     }
 
     return "window"
-  }, [optionsExistAndNotEmpty])
+  }, [options])
 
   // State to store the screen dimensions
   const [screenSize, setScreenSize] = useState<ScaledSize>(

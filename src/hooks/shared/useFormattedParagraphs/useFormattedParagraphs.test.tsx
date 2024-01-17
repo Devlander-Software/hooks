@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react-hooks"
-import { useFormattedParagraphs } from "./useFormattedParagraphs"
+import { useFormattedParagraphs } from "./useFormattedParagraphs.hook"
 
 describe("useFormattedParagraphs", () => {
   it("should format paragraphs with proper spacing", () => {

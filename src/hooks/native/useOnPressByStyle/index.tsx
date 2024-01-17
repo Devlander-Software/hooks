@@ -1,1 +1,1 @@
-export { default as useOnPressByStyle } from "./useOnPressByStyle"
+export { useOnPressByStyle } from "./useOnPressByStyle.hook"

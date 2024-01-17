@@ -9,4 +9,3 @@ export declare function useKeyCodes(): {
     end: number;
     home: number;
 };
-export default useKeyCodes;

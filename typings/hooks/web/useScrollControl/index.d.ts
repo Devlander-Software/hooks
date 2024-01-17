@@ -1,1 +1,1 @@
-export { default as useScrollControl } from "./useScrollControl";
+export { useScrollControl } from "./useScrollControl.hook";

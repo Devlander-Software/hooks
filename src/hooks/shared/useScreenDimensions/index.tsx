@@ -1,2 +1,1 @@
-export { useScreenDimensions } from "./useScreenDimensions.hook";
-
+export { useScreenDimensions } from "./useScreenDimensions.hook"

@@ -14,4 +14,4 @@ interface UseOnClickByStyleOptionsForWeb extends UseOnClickByStyleOptions {
  * @returns {Function} A handler function to be used in a clickable component.
  */
 export declare function useOnClickByClassName({ className, onClick, }: UseOnClickByStyleOptionsForWeb): (event: any) => void;
-export default useOnClickByClassName;
+export {};

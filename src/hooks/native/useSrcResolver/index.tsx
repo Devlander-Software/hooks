@@ -1,2 +1,1 @@
-export { useSrcResolver } from "./useSrcResolver.hook";
-
+export { useSrcResolver } from "./useSrcResolver.hook"

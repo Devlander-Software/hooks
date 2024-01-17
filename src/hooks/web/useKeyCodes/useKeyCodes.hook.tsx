@@ -14,5 +14,3 @@ export function useKeyCodes() {
 
   return keys
 }
-
-export default useKeyCodes
