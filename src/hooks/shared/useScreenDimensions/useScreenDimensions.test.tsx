@@ -1,8 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks"
-import {
-  useScreenDimensions,
-  UseScreenOptions,
-} from "./useScreenDimensions.hook" // Import your hook
+import type { UseScreenDimensionsOptions } from "./useScreenDimensions.hook"
+import { useScreenDimensions } from "./useScreenDimensions.hook" // Import your hook
 
 // Mock Dimensions module for React Native Web
 jest.mock("react-native-web", () => ({
@@ -35,7 +33,7 @@ describe("useScreenDimensions", () => {
 
   it("returns the screen dimensions with 'window' scaleType", () => {
     const screenDimensions = { width: 480, height: 800 }
-    const options: UseScreenOptions = { scaleType: "window" }
+    const options: UseScreenDimensionsOptions = { scaleType: "window" }
 
     // Mock Dimensions.get to return the screen dimensions
     jest
@@ -51,7 +49,7 @@ describe("useScreenDimensions", () => {
 
   it("returns the screen dimensions with 'screen' scaleType", () => {
     const screenDimensions = { width: 1920, height: 1080 }
-    const options: UseScreenOptions = { scaleType: "screen" }
+    const options: UseScreenDimensionsOptions = { scaleType: "screen" }
 
     // Mock Dimensions.get to return the screen dimensions
     jest
