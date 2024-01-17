@@ -30,5 +30,3 @@ export function useScrollControl(): {
 
   return { disableScroll, enableScroll }
 }
-
-export default useScrollControl

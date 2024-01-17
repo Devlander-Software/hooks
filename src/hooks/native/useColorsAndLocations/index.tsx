@@ -1,2 +1,1 @@
-export { useColorsAndLocations } from "./useColorsAndLocations.hook";
-
+export { useColorsAndLocations } from "./useColorsAndLocations.hook"

@@ -1,3 +1,4 @@
+/* eslint-disable promise/param-names */
 import { renderHook } from "@testing-library/react-hooks"
 import { useSrcResolver } from "./useSrcResolver.hook"
 

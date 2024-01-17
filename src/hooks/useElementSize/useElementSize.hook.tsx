@@ -53,4 +53,3 @@ export const useElementSize = (): [
 
   return [size, ref]
 }
-export default useElementSize

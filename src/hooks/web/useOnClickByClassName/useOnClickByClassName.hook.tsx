@@ -41,5 +41,3 @@ export function useOnClickByClassName({
 
   return handleOnClick
 }
-
-export default useOnClickByClassName

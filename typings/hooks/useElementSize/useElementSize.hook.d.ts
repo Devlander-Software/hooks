@@ -13,4 +13,4 @@ export declare const useElementSize: () => [
     SizeType,
     MutableRefObject<HTMLElement | null>
 ];
-export default useElementSize;
+export {};

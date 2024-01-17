@@ -16,5 +16,3 @@ export function usePreventDefault() {
 
   return { preventDefault, preventDefaultForScrollKeys }
 }
-
-export default usePreventDefault

@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const path = require("path");
 
 module.exports = {
   env: {
@@ -14,6 +17,8 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'react',
+    "react-hooks",
+
     'react-native',
     'import',
     'jest',
@@ -29,7 +34,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.eslint.json',
+    project: path.join(__dirname, 'tsconfig.eslint.json'),
   },
   ignorePatterns: ["*.d.ts", "package-type-helper.cjs", "package-type-helper.js", "rollup-config/*/**", "rollup-config/rollup-config.ts",     "rollup.config.mjs"],
   rules: {
@@ -42,6 +47,13 @@ module.exports = {
         usePrettierrc: false,
       },
     ],
+       // ... your existing rules ...
+       "react-hooks/exhaustive-deps": [
+        "error",
+        {
+          "additionalHooks": "(useAnimatedStyle|useDerivedValue|useAnimatedProps)"
+        }
+      ],
     '@typescript-eslint/no-unused-vars': ['warn'],
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
@@ -111,7 +123,7 @@ module.exports = {
       }
     },
     {
-      files: ['*.component.tsx'],
+      files: ['*.hook.tsx'],
       rules: {
         'import/no-default-export': 'error',
       },
@@ -120,6 +132,7 @@ module.exports = {
   globals: {
     SwaggerEditor: true,
     JSX: true,
+    React: true,
     window: true
   },
 };
