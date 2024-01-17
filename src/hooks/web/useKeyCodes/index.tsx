@@ -1,1 +1,1 @@
-export { default as useKeyCodes } from "./useKeyCodes"
+export { useKeyCodes } from "./useKeyCodes.hook"

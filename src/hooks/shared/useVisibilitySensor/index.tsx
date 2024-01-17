@@ -1,2 +1,1 @@
-export { useVisibilitySensor } from "./useVisibilitySensor.hook";
-
+export { useVisibilitySensor } from "./useVisibilitySensor.hook"
