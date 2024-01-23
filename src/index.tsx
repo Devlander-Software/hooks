@@ -41,7 +41,7 @@ export * from "./hooks/useOrientation/useOrientation.hook"
 /**
  * TSDoc for usePreventDefault.hook
  */
-export * from "./hooks/usePreventDefault/usePreventDefault.hook"
+export * from "./hooks/web/usePreventDefault/usePreventDefault.hook"
 /**
  * TSDoc for useKeyCodes.hook
  */
