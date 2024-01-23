@@ -1,4 +1,4 @@
-import { usePreventDefault } from "../../usePreventDefault"
+import { usePreventDefault } from "../../usePreventDefault/usePreventDefault.hook"
 
 // Hook for disabling and enabling scroll
 export function useScrollControl(): {
