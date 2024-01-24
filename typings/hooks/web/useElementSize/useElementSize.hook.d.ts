@@ -1,5 +1,5 @@
 import type { MutableRefObject } from "react";
-import type { LayoutType } from "../../types/screen-size.type";
+import type { LayoutType } from "../../../types/screen-size.type";
 type SizeType = LayoutType | DOMRect;
 /**
  * Represents the type of size information.
