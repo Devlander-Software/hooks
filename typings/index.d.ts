@@ -7,6 +7,10 @@ export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
 /**
+ * TSDoc for useOrientation.hook
+ */
+export * from "./hooks/native/useOrientation/useOrientation.hook";
+/**
  * TSDoc for useSrcResolver.hook
  */
 export * from "./hooks/native/useSrcResolver/useSrcResolver.hook";
@@ -14,6 +18,10 @@ export * from "./hooks/native/useSrcResolver/useSrcResolver.hook";
  * TSDoc for useViewSize.hook
  */
 export * from "./hooks/native/useViewSize/useViewSize.hook";
+/**
+ * TSDoc for useAbbreviateNumber.hook
+ */
+export * from "./hooks/shared/useAbbreviateNumber/useAbbreviateNumber.hook";
 /**
  * TSDoc for useDebounce.hook
  */
@@ -33,15 +41,7 @@ export * from "./hooks/shared/useVisibilitySensor/useVisibilitySensor.hook";
 /**
  * TSDoc for useElementSize.hook
  */
-export * from "./hooks/useElementSize/useElementSize.hook";
-/**
- * TSDoc for useOrientation.hook
- */
-export * from "./hooks/useOrientation/useOrientation.hook";
-/**
- * TSDoc for usePreventDefault.hook
- */
-export * from "./hooks/usePreventDefault/usePreventDefault.hook";
+export * from "./hooks/web/useElementSize/useElementSize.hook";
 /**
  * TSDoc for useKeyCodes.hook
  */
@@ -50,6 +50,10 @@ export * from "./hooks/web/useKeyCodes/useKeyCodes.hook";
  * TSDoc for useOnClickByClassName.hook
  */
 export * from "./hooks/web/useOnClickByClassName/useOnClickByClassName.hook";
+/**
+ * TSDoc for usePreventDefault.hook
+ */
+export * from "./hooks/web/usePreventDefault/usePreventDefault.hook";
 /**
  * TSDoc for useScrollControl.hook
  */
