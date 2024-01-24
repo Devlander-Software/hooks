@@ -1,4 +1,4 @@
-![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks-collection/raw/main/media/images/react-hooks-github-cover.jpg)
+![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks/raw/main/media/images/react-hooks-github-cover.jpg)
 
 <a href="https://twitter.com/intent/tweet?button_hashtag=devlanderhooks" target="_parent">
   <img alt="#DevlanderHooks" src="https://img.shields.io/twitter/url?color=%2308a0e9&label=DevlanderHooks&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fbutton_hashtag%DevlanderHooks">
@@ -22,6 +22,12 @@
 <a href="https://bit.ly/landonwjohnson-on-twitter" target="_parent">
   <img alt="Follow Landon Johnson On Twitter" src="https://img.shields.io/twitter/follow/landonwjohnson.svg?style=social&label=Follow" />
 </a> 
+
+
+<a href="https://bit.ly/landonwjohnson-on-twitter" target="_parent">
+  <img alt="Wakatime Devlander hooks" src="https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/018b1ae9-e146-4ac3-88fb-6e3097c4064c.svg" />
+</a> 
+
 
 # Devlander React Hooks Collection
 
