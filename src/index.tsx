@@ -33,11 +33,11 @@ export * from "./hooks/shared/useVisibilitySensor/useVisibilitySensor.hook"
 /**
  * TSDoc for useElementSize.hook
  */
-export * from "./hooks/useElementSize/useElementSize.hook"
+export * from "./hooks/web/useElementSize/useElementSize.hook"
 /**
  * TSDoc for useOrientation.hook
  */
-export * from "./hooks/useOrientation/useOrientation.hook"
+export * from "./hooks/native/useOrientation/useOrientation.hook"
 /**
  * TSDoc for usePreventDefault.hook
  */

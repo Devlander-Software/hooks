@@ -23,6 +23,12 @@
   <img alt="Follow Landon Johnson On Twitter" src="https://img.shields.io/twitter/follow/landonwjohnson.svg?style=social&label=Follow" />
 </a> 
 
+
+<a href="https://bit.ly/landonwjohnson-on-twitter" target="_parent">
+  <img alt="Wakatime Devlander hooks" src="https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/018b1ae9-e146-4ac3-88fb-6e3097c4064c.svg" />
+</a> 
+
+
 # Devlander React Hooks Collection
 
 ## Introduction
