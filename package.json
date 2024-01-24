@@ -44,7 +44,6 @@
     "dist",
     "typings"
   ],
-  "packageManager": "yarn@3.6.3",
   "peerDependenciesMeta": {
     "react": {
       "optional": true
