@@ -1,19 +1,7 @@
 /**
- * TSDoc for useColorsAndLocations
- */
-export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations";
-/**
  * TSDoc for useOnPressByStyle
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle";
-/**
- * TSDoc for useSrcResolver
- */
-export * from "./hooks/native/useSrcResolver/useSrcResolver";
-/**
- * TSDoc for useViewSize
- */
-export * from "./hooks/native/useViewSize/useViewSize";
 /**
  * TSDoc for useFormattedParagraphs
  */
@@ -26,14 +14,6 @@ export * from "./hooks/useOrientation/useOrientation";
  * TSDoc for usePreventDefault
  */
 export * from "./hooks/usePreventDefault/usePreventDefault";
-/**
- * TSDoc for useScreenDimensions
- */
-export * from "./hooks/useScreenDimensions/useScreenDimensions";
-/**
- * TSDoc for useVisibilitySensor
- */
-export * from "./hooks/useVisibilitySensor/useVisibilitySensor";
 /**
  * TSDoc for useOnClickByClassName
  */
