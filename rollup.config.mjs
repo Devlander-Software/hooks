@@ -15,11 +15,12 @@ const external = [
   "react",
   "react-dom",
   "react-native-web",  // Add more peer dependencies here
-
+  "react-native"
 ];
 
 const globals = {
   react: "React",
+  "react-native": "reactNative",
   "react-native-web": "reactNativeWeb"
 }
 

@@ -9,17 +9,16 @@
   "scripts": {
     "prebuild": "npm cache clean --force",
     "build:index": "node ./external-modules/auto-export.js",
-    "increment-version": "yarn --version patch",
     "build:esm": "tsc",
     "test": "jest",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint ./src --ext .ts,.tsx --fix && yarn run format && yarn run typecheck ",
     "typecheck": "tsc --project tsconfig.json --noEmit --emitDeclarationOnly false",
     "build": "npx rimraf ./dist && npx rimraf ./typings && yarn run build:index && yarn build:esm && yarn build:umd",
-    "build:umd": "yarn run increment-version && rollup -c ",
+    "build:umd": "yarn run  rollup -c ",
     "timeout": "delay 5",
     "push-main": "git add -A && yarn run timeout && git commit -m 'updated build' && yarn run timeout  && git push origin main",
-    "start-publish": "yarn run lint && yarn run build && yarn run increment-version && npm publish",
+    "start-publish": "yarn run lint && yarn run build && && npm publish",
     "prepare": "yarn run build"
   },
   "repository": {

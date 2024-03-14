@@ -1,12 +1,6 @@
 import { useCallback } from "react"
-import type { UseOnClickByStyleOptions } from "../../../types/on-click-by-style-options.type"
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native"
 import { StyleSheet } from "react-native"
-
-interface UseOnClickNativeOptions extends UseOnClickByStyleOptions {
-  styleName: string
-  onPress: () => void
-}
 
 /**
  * A hook to create a conditional onPress handler based on the presence of a specified style.
