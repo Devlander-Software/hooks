@@ -31,6 +31,10 @@ export * from "./hooks/shared/useDebounce/useDebounce.hook";
  */
 export * from "./hooks/shared/useFormattedParagraphs/useFormattedParagraphs.hook";
 /**
+ * TSDoc for useIsMounted.hook
+ */
+export * from "./hooks/shared/useIsMounted/useIsMounted.hook";
+/**
  * TSDoc for useScreenDimensions.hook
  */
 export * from "./hooks/shared/useScreenDimensions/useScreenDimensions.hook";
