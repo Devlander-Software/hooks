@@ -190,7 +190,3 @@ export default ExampleComponent;
 This package is open-source, available under the MIT License.
 
 
-<<<<<<< HEAD
-=======
-This template follows the structure of your provided example, adapting it to fit the specifics of the Devlander React Hooks Collection. You can expand each section with more details and code examples as needed.
->>>>>>> 18f696f1a5fde5796df13f6e4116c6ea34eabfd4
