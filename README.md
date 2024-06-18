@@ -29,11 +29,11 @@
 </a> 
 
 
-# Devlander React Hooks Collection
+# Devlander React Native Hooks Collection
 
 ## Introduction
 
-The Devlander React Hooks Collection is a comprehensive library of React and React Native hooks, designed for seamless integration and addressing common development challenges. This collection streamlines your development process, offering versatile, cross-platform solutions for a variety of use cases.
+The Devlander React Native Hooks Collection is a comprehensive library of React Native hooks, designed for seamless integration and addressing common development challenges. This collection streamlines your development process, offering versatile, cross-platform solutions for a variety of use cases.
 
 ## Featured Hooks
 
@@ -44,7 +44,7 @@ The Devlander React Hooks Collection is a comprehensive library of React and Rea
 
 ## Installation
 
-You can install the Devlander React Hooks Collection using npm or yarn:
+You can install the Devlander React Native Hooks Collection using npm or yarn:
 
 npm
 ```bash
@@ -64,26 +64,26 @@ Each hook in the collection is designed for easy integration. Here are examples 
 
 ### useScrollControl
 ```typescript
-// ScrollControlComponent.jsx
+// ScrollControlComponent.tsx
 import React from 'react';
+import { Button, View } from 'react-native';
 import { useScrollControl } from '@devlander/hooks'; // Adjust the import path as needed
 
 const ScrollControlComponent = () => {
   const { disableScroll, enableScroll } = useScrollControl();
 
   return (
-    <div>
-      <button onClick={disableScroll}>Disable Scrolling</button>
-      <button onClick={enableScroll}>Enable Scrolling</button>
-      <div style={{ height: '150vh', backgroundColor: '#f0f0f0' }}>
-        <p>Scroll down to see more content...</p>
-      </div>
-    </div>
+    <View>
+      <Button title="Disable Scrolling" onPress={disableScroll} />
+      <Button title="Enable Scrolling" onPress={enableScroll} />
+      <View style={{ height: 1000, backgroundColor: '#f0f0f0' }}>
+        <Text>Scroll down to see more content...</Text>
+      </View>
+    </View>
   );
 };
 
 export default ScrollControlComponent;
-
 ```
 
 ### useScreenDimensions
@@ -94,7 +94,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { useScreenDimensions } from '@devlander/hooks'; // Adjust the import path as needed
 
 const ExampleComponent = () => {
-  const { width, height } = useScreenDimensions({ scaleType: 'window' });
+  const { width, height } = useScreenDimensions();
 
   return (
     <View style={styles.container}>
@@ -113,7 +113,6 @@ const styles = StyleSheet.create({
 });
 
 export default ExampleComponent;
-
 ```
 
 ### useVisibilitySensor
@@ -140,7 +139,7 @@ export default MyVisibilityComponent;
 ```typescript
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import {useOnPressByStyle} from '@devlander/hooks';
+import { useOnPressByStyle } from '@devlander/hooks';
 
 const ExampleComponent = () => {
   const onPressFunction = () => console.log('Button with special style pressed!');
@@ -178,19 +177,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyComponent;
-
+export default ExampleComponent;
 ```
 
 ## Notes
 
 - Ensure to run these hooks from the root of your project.
-- Follow platform-specific guidelines for React Native and web implementations.
+- Follow platform-specific guidelines for React Native implementations.
 
 ## License
 
 This package is open-source, available under the MIT License.
 
----
 
-This template follows the structure of your provided example, adapting it to fit the specifics of the Devlander React Hooks Collection. You can expand each section with more details and code examples as needed.
