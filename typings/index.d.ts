@@ -3,6 +3,14 @@
  */
 export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
 /**
+ * TSDoc for useContainerStyle.hook
+ */
+export * from "./hooks/native/useContainerStyle/useContainerStyle.hook";
+/**
+ * TSDoc for useGetMediaQueryInfo.hook
+ */
+export * from "./hooks/native/useGetMediaQueryInfo/useGetMediaQueryInfo.hook";
+/**
  * TSDoc for useOnPressByStyle.hook
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
@@ -10,6 +18,10 @@ export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
  * TSDoc for useOrientation.hook
  */
 export * from "./hooks/native/useOrientation/useOrientation.hook";
+/**
+ * TSDoc for useResponsiveQueries.hook
+ */
+export * from "./hooks/native/useReponsiveQueries/useResponsiveQueries.hook";
 /**
  * TSDoc for useSrcResolver.hook
  */
@@ -30,6 +42,10 @@ export * from "./hooks/shared/useDebounce/useDebounce.hook";
  * TSDoc for useFormattedParagraphs.hook
  */
 export * from "./hooks/shared/useFormattedParagraphs/useFormattedParagraphs.hook";
+/**
+ * TSDoc for useIsMounted.hook
+ */
+export * from "./hooks/shared/useIsMounted/useIsMounted.hook";
 /**
  * TSDoc for useScreenDimensions.hook
  */
