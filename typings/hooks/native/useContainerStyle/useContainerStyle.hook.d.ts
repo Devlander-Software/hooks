@@ -4,4 +4,6 @@ import type { ViewStyle } from "react-native";
  * @param containerStyleProps - The style props for the container.
  * @returns The container style.
  */
-export declare const useContainerStyle: (containerStyleProps: ViewStyle | ViewStyle[]) => ViewStyle;
+type ContainerStyleProps = ViewStyle | ViewStyle[];
+export declare const useContainerStyle: (containerStyleProps: ContainerStyleProps) => ViewStyle;
+export {};
