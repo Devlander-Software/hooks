@@ -1,4 +1,4 @@
-![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks/raw/main/media/images/react-hooks-github-cover.jpg)
+![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks/raw/main/media/images/react-hooks-github-cover.png)
 
 <a href="https://twitter.com/intent/tweet?button_hashtag=devlanderhooks" target="_parent">
   <img alt="#DevlanderHooks" src="https://img.shields.io/twitter/url?color=%2308a0e9&label=DevlanderHooks&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fbutton_hashtag%DevlanderHooks">
@@ -190,3 +190,7 @@ export default ExampleComponent;
 This package is open-source, available under the MIT License.
 
 
+<<<<<<< HEAD
+=======
+This template follows the structure of your provided example, adapting it to fit the specifics of the Devlander React Hooks Collection. You can expand each section with more details and code examples as needed.
+>>>>>>> 18f696f1a5fde5796df13f6e4116c6ea34eabfd4
