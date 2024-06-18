@@ -7,9 +7,10 @@ import type { ViewStyle } from "react-native"
  * @param containerStyleProps - The style props for the container.
  * @returns The container style.
  */
-export const useContainerStyle = (
-  containerStyleProps: ViewStyle | ViewStyle[],
-) => {
+
+type ContainerStyleProps = ViewStyle | ViewStyle[]
+
+export const useContainerStyle = (containerStyleProps: ContainerStyleProps) => {
   const isContainerStyleArray = Array.isArray(containerStyleProps)
 
   const getContainerStyle = useMemo(() => {
