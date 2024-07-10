@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import type { ScaledSize } from "react-native"
 import { Dimensions } from "react-native"
 
@@ -14,20 +14,43 @@ import { Dimensions } from "react-native"
  * const { width, height } = useScreenDimensions();
  * ```
  *
- * @returns {Object} An object containing the `width` and `height` of the screen.
+ * @param {Object} options - Configuration options for the hook.
+ * @param {string} options.scaleType - Specifies whether to track the "window" or "screen" dimensions.
+ * @returns {ScaledSize} An object containing the `width` and `height` of the screen.
  */
+export interface UseScreenDimensionsOptions {
+  scaleType?: "window" | "screen"
+}
 
-export const useScreenDimensions = (): ScaledSize => {
+export const useScreenDimensions = (
+  options?: UseScreenDimensionsOptions,
+): ScaledSize => {
+  // Check if options exist and are not empty
+
+  // Determine the scaleType, default to "window" if not provided or invalid
+  const scaleType = useMemo(() => {
+    const { scaleType } = options || {}
+    if (scaleType && (scaleType === "window" || scaleType === "screen")) {
+      return scaleType
+    }
+
+    return "window"
+  }, [options])
+
+  // State to store the screen dimensions
   const [screenSize, setScreenSize] = useState<ScaledSize>(
     Dimensions.get("window"),
   )
 
+  // Subscribe to screen size changes and update the state
   useEffect(() => {
     const onResize = (event: { window: ScaledSize; screen: ScaledSize }) => {
+      const dimensionsToGet =
+        scaleType === "window" ? event.window : event.screen
       setScreenSize((prevSize) => ({
         ...prevSize,
-        width: event.window.width,
-        height: event.window.height,
+        width: dimensionsToGet.width,
+        height: dimensionsToGet.height,
       }))
     }
 
@@ -36,7 +59,7 @@ export const useScreenDimensions = (): ScaledSize => {
 
     // Use the unsubscribe function in the cleanup
     return () => unsubscribe.remove()
-  }, [])
+  }, [scaleType])
 
   return screenSize
 }

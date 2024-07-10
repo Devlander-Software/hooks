@@ -11,6 +11,11 @@ import type { ScaledSize } from "react-native";
  * const { width, height } = useScreenDimensions();
  * ```
  *
- * @returns {Object} An object containing the `width` and `height` of the screen.
+ * @param {Object} options - Configuration options for the hook.
+ * @param {string} options.scaleType - Specifies whether to track the "window" or "screen" dimensions.
+ * @returns {ScaledSize} An object containing the `width` and `height` of the screen.
  */
-export declare const useScreenDimensions: () => ScaledSize;
+export interface UseScreenDimensionsOptions {
+    scaleType?: "window" | "screen";
+}
+export declare const useScreenDimensions: (options?: UseScreenDimensionsOptions) => ScaledSize;

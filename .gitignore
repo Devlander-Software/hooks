@@ -28,3 +28,7 @@ ehthumbs.db
 Thumbs.db
 
 dist
+.env
+
+
+.yarn/*
