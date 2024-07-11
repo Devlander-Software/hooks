@@ -11,6 +11,10 @@ export * from "./hooks/native/useContainerStyle/useContainerStyle.hook";
  */
 export * from "./hooks/native/useGetMediaQueryInfo/useGetMediaQueryInfo.hook";
 /**
+ * TSDoc for useImageStyle.hook
+ */
+export * from "./hooks/native/useImageStyle/useImageStyle.hook";
+/**
  * TSDoc for useMergedObjects.hook
  */
 export * from "./hooks/native/useMergedObjects/useMergedObjects.hook";
@@ -30,6 +34,10 @@ export * from "./hooks/native/useReponsiveQueries/useResponsiveQueries.hook";
  * TSDoc for useSrcResolver.hook
  */
 export * from "./hooks/native/useSrcResolver/useSrcResolver.hook";
+/**
+ * TSDoc for useTextStyle.hook
+ */
+export * from "./hooks/native/useTextStyle/useTextStyle.hook";
 /**
  * TSDoc for useViewSize.hook
  */
