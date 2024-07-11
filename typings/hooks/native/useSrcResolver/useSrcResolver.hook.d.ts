@@ -2,11 +2,11 @@ import type { ImageURISource } from "react-native";
 /**
  * Type definition for a video playback source which could be a number or an object with a URI.
  */
-type VideoPlaybackSource = number | AVPlaybackSourceObject;
+export type VideoPlaybackSource = number | AVPlaybackSourceObject;
 /**
  * Represents a source object for AV playback with an optional override for the file extension on Android and headers.
  */
-type AVPlaybackSourceObject = {
+export type AVPlaybackSourceObject = {
     uri: string;
     overrideFileExtensionAndroid?: string;
     headers?: Record<string, string>;
@@ -19,20 +19,20 @@ type AVPlaybackSourceObject = {
  * - An ImageURISource object from react-native
  * - null
  */
-type SrcType = null | string | VideoPlaybackSource | ImageURISource | (() => string) | (() => Promise<string>);
+export type SrcType = null | string | VideoPlaybackSource | ImageURISource | (() => string) | (() => Promise<string>);
 /**
  * Defines the structure for an error object related to source resolution.
  */
-interface ErrorType {
+export interface SrcErrorType {
     key: string;
     error: Error;
 }
 /**
  * Defines the return type for the useSrcResolver hook.
  */
-interface SrcResolverReturnType {
+export interface SrcResolverReturnType {
     loading: boolean;
-    errors: ErrorType[];
+    errors: SrcErrorType[];
     resolvedSrc?: string;
 }
 /**
@@ -41,4 +41,3 @@ interface SrcResolverReturnType {
  * @returns An object containing the resolved source, loading state, and any errors encountered.
  */
 export declare const useSrcResolver: (src: SrcType) => SrcResolverReturnType;
-export {};

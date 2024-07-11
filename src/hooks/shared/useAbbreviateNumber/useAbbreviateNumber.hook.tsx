@@ -1,9 +1,14 @@
 import { useMemo } from "react"
+import { abbreviateNumber, AbbreviateOptions } from "@devlander/utils"
+
+/**
+ * Options for formatting the abbreviated number's suffix.
+ */
 
 /**
  * Parameters for useAbbreviateNumber hook.
  */
-interface UseAbbreviateNumberParams {
+export interface UseAbbreviateNumberParams  extends AbbreviateOptions{
   /** The input number or a string representing a number. */
   input: number | string
   /**
@@ -12,6 +17,12 @@ interface UseAbbreviateNumberParams {
    * Default is 'none'.
    */
   rounding?: "up" | "down" | "none"
+  /**
+   * The case for the suffix.
+   * 'lower' for lowercase, 'upper' for uppercase.
+   * Default is 'upper'.
+   */
+  case?: "lower" | "upper"
 }
 
 /**
@@ -20,45 +31,12 @@ interface UseAbbreviateNumberParams {
  * @param {UseAbbreviateNumberParams} params - Parameters for the hook.
  * @returns {string} - The abbreviated number as a string.
  */
-export function useAbbreviateNumber({
-  input,
-  rounding = "none",
-}: UseAbbreviateNumberParams): string {
+export function useAbbreviateNumber(params: UseAbbreviateNumberParams): string {
+  const { input, rounding = "none", case: caseOption = "upper" } = params || {}
+
   const abbreviated = useMemo(() => {
-    let number = typeof input === "string" ? parseFloat(input) : input
-
-    if (isNaN(number)) {
-      return input.toString()
-    }
-
-    // Apply rounding if needed
-    switch (rounding) {
-      case "up":
-        number = Math.ceil(number)
-        break
-      case "down":
-        number = Math.floor(number)
-        break
-      default:
-        // No rounding
-        break
-    }
-
-    // Abbreviation logic
-    if (number >= 1000000000000000) {
-      return Math.round(number / 1000000000000000) + "q"
-    } else if (number >= 1000000000000) {
-      return Math.round(number / 1000000000000) + "T"
-    } else if (number >= 1000000000) {
-      return Math.round(number / 1000000000) + "B"
-    } else if (number >= 1000000) {
-      return Math.round(number / 1000000) + "M"
-    } else if (number >= 1000) {
-      return Math.round(number / 1000) + "K"
-    } else {
-      return number.toString()
-    }
-  }, [input, rounding])
+    return abbreviateNumber(input, { rounding, case: caseOption })
+  }, [input, rounding, caseOption])
 
   return abbreviated
 }
