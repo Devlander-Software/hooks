@@ -190,3 +190,4 @@ export default ExampleComponent;
 This package is open-source, available under the MIT License.
 
 
+### [Become a Sponsor!](https://bit.ly/sponsor-landonjohnson-github/)
