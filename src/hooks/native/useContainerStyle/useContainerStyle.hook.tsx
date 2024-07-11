@@ -10,15 +10,18 @@ import type { ViewStyle } from "react-native"
 
 type ContainerStyleProps = ViewStyle | ViewStyle[]
 
-export const useContainerStyle = (containerStyleProps: ContainerStyleProps) => {
+export const useContainerStyle = (containerStyleProps?: ContainerStyleProps) => {
   const isContainerStyleArray = Array.isArray(containerStyleProps)
 
   const getContainerStyle = useMemo(() => {
-    if (isContainerStyleArray) {
-      return containerStyleProps[0]
-    } else if (isEmpty(containerStyleProps)) {
+    if (containerStyleProps === undefined || isEmpty(containerStyleProps)) {
       return {}
     }
+    
+    if (isContainerStyleArray) {
+      return containerStyleProps[0]
+    }
+
     return containerStyleProps
   }, [isContainerStyleArray, containerStyleProps])
 
