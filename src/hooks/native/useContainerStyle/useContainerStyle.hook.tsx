@@ -1,6 +1,6 @@
-import { isEmpty } from "@devlander/utils"
-import { useMemo } from "react"
-import type { ViewStyle } from "react-native"
+import { isEmpty } from "@devlander/utils";
+import { useMemo } from "react";
+import type { ViewStyle } from "react-native";
 
 /**
  * Custom hook that returns the container style based on the provided props.
@@ -8,22 +8,22 @@ import type { ViewStyle } from "react-native"
  * @returns The container style.
  */
 
-type ContainerStyleProps = ViewStyle | ViewStyle[]
+type ContainerStyleProps = ViewStyle | ViewStyle[];
 
-export const useContainerStyle = (containerStyleProps?: ContainerStyleProps) => {
-  const isContainerStyleArray = Array.isArray(containerStyleProps)
-
+export const useContainerStyle = (
+  containerStyleProps?: ContainerStyleProps,
+) => {
   const getContainerStyle = useMemo(() => {
     if (containerStyleProps === undefined || isEmpty(containerStyleProps)) {
-      return {}
-    }
-    
-    if (isContainerStyleArray) {
-      return containerStyleProps[0]
+      return {};
     }
 
-    return containerStyleProps
-  }, [isContainerStyleArray, containerStyleProps])
+    if (Array.isArray(containerStyleProps)) {
+      return containerStyleProps[0];
+    }
 
-  return getContainerStyle
-}
+    return containerStyleProps;
+  }, [JSON.stringify(containerStyleProps)]);
+
+  return getContainerStyle;
+};

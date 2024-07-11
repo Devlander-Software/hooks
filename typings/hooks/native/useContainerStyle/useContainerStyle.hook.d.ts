@@ -5,5 +5,5 @@ import type { ViewStyle } from "react-native";
  * @returns The container style.
  */
 type ContainerStyleProps = ViewStyle | ViewStyle[];
-export declare const useContainerStyle: (containerStyleProps?: ContainerStyleProps) => ViewStyle | undefined;
+export declare const useContainerStyle: (containerStyleProps?: ContainerStyleProps) => ViewStyle;
 export {};

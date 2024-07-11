@@ -11,6 +11,10 @@ export * from "./hooks/native/useContainerStyle/useContainerStyle.hook";
  */
 export * from "./hooks/native/useGetMediaQueryInfo/useGetMediaQueryInfo.hook";
 /**
+ * TSDoc for useMergedObjects.hook
+ */
+export * from "./hooks/native/useMergedObjects/useMergedObjects.hook";
+/**
  * TSDoc for useOnPressByStyle.hook
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";

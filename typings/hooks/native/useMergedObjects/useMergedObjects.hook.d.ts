@@ -1,3 +1,2 @@
-import { MergeableInput } from "@devlander/utils/typings/types/value.types";
-declare function useMergedObjects(...objs: MergeableInput[]): Record<string, MergeableValue>;
-export default useMergedObjects;
+import type { MergeableInput, MergeableValue } from "@devlander/utils/typings/types/value.types";
+export declare const useMergedObjects: (...objs: MergeableInput[]) => Record<string, MergeableValue>;
