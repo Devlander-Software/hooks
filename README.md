@@ -1,4 +1,4 @@
-![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks/raw/main/media/images/react-hooks-github-cover.png)
+![Devlander Hooks Collection Header](https://github.com/Devlander-Software/hooks/raw/main/media/images/react-hooks-devlander-header-thumb.png)
 
 <a href="https://twitter.com/intent/tweet?button_hashtag=devlanderhooks" target="_parent">
   <img alt="#DevlanderHooks" src="https://img.shields.io/twitter/url?color=%2308a0e9&label=DevlanderHooks&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fbutton_hashtag%DevlanderHooks">
@@ -190,3 +190,4 @@ export default ExampleComponent;
 This package is open-source, available under the MIT License.
 
 
+### [Become a Sponsor!](https://bit.ly/sponsor-landonjohnson-github/)

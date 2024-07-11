@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import type { ImageURISource } from "react-native"
 
 /**
  * Type definition for a video playback source which could be a number or an object with a URI.
  */
-type VideoPlaybackSource = number | AVPlaybackSourceObject
+export type VideoPlaybackSource = number | AVPlaybackSourceObject
 
 /**
  * Represents a source object for AV playback with an optional override for the file extension on Android and headers.
  */
-type AVPlaybackSourceObject = {
+export type AVPlaybackSourceObject = {
   uri: string
   overrideFileExtensionAndroid?: string
   headers?: Record<string, string>
@@ -23,7 +23,7 @@ type AVPlaybackSourceObject = {
  * - An ImageURISource object from react-native
  * - null
  */
-type SrcType =
+export type SrcType =
   | null
   | string
   | VideoPlaybackSource
@@ -34,7 +34,7 @@ type SrcType =
 /**
  * Defines the structure for an error object related to source resolution.
  */
-interface ErrorType {
+export interface SrcErrorType {
   key: string
   error: Error
 }
@@ -42,9 +42,9 @@ interface ErrorType {
 /**
  * Defines the return type for the useSrcResolver hook.
  */
-interface SrcResolverReturnType {
+export interface SrcResolverReturnType {
   loading: boolean
-  errors: ErrorType[]
+  errors: SrcErrorType[]
   resolvedSrc?: string
 }
 
@@ -55,8 +55,17 @@ interface SrcResolverReturnType {
  */
 export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
   const [loading, setLoading] = useState<boolean>(false)
-  const [errors, setErrors] = useState<ErrorType[]>([])
+  const [errors, setErrors] = useState<SrcErrorType[]>([])
   const [resolvedSrc, setResolvedSrc] = useState<string | undefined>()
+
+  const srcStringified = useCallback(
+    () => (src && typeof src === "object" ? JSON.stringify(src) : src),
+    [src],
+  )
+  const srcFunction = useCallback(
+    () => (src && typeof src === "function" ? src.toString() : src),
+    [src],
+  )
 
   useEffect(() => {
     const resolveSrc = async () => {
@@ -87,7 +96,7 @@ export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
     }
 
     resolveSrc()
-  }, [src])
+  }, [src, srcStringified, srcFunction])
 
   return {
     loading,
