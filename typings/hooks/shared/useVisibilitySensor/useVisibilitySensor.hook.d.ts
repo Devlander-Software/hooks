@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { View } from "react-native";
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
