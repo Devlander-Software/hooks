@@ -9,5 +9,8 @@ type SizeType = LayoutType | DOMRect;
  * Custom hook to track the size of an element.
  * @returns {[SizeType, MutableRefObject<HTMLElement | null>]} An array containing the current size and a ref to the element.
  */
-export declare const useElementSize: () => [SizeType, MutableRefObject<HTMLElement | null>];
+export declare const useElementSize: () => [
+    SizeType,
+    MutableRefObject<HTMLElement | null>
+];
 export {};

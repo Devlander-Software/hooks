@@ -40,7 +40,6 @@ The Devlander React Native Hooks Collection is a comprehensive library of React 
 - **useScrollControl**: Manage scrolling behavior in your application.
 - **useScreenDimensions**: Access screen dimensions for responsive designs.
 - **useVisibilitySensor**: Detect when an element is visible on the screen.
-- **useOnClickByStyle**: Handle click events based on specific styles or classes.
 
 ## Installation
 
@@ -135,54 +134,7 @@ const MyVisibilityComponent = () => {
 export default MyVisibilityComponent;
 ```
 
-### useOnClickByStyle
-```typescript
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { useOnPressByStyle } from '@devlander/hooks';
-
-const ExampleComponent = () => {
-  const onPressFunction = () => console.log('Button with special style pressed!');
-
-  const getOnPress = useOnPressByStyle({
-    styleName: 'specialButton', // The specific style key to look for
-    onPress: onPressFunction,
-  });
-
-  return (
-    <View>
-      <TouchableOpacity
-        style={styles.specialButton}
-        onPress={getOnPress(styles.specialButton)}
-      >
-        <Text>Button with Special Style</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.regularButton}
-        onPress={getOnPress(styles.regularButton)}
-      >
-        <Text>Regular Button</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  specialButton: {
-    // Define the style with the key 'specialButton'
-  },
-  regularButton: {
-    // Regular button styles
-  },
-});
-
-export default ExampleComponent;
-```
-
 ## Notes
-
-- Ensure to run these hooks from the root of your project.
 - Follow platform-specific guidelines for React Native implementations.
 
 ## License
