@@ -1,7 +1,11 @@
+import { AbbreviateOptions } from "@devlander/utils";
+/**
+ * Options for formatting the abbreviated number's suffix.
+ */
 /**
  * Parameters for useAbbreviateNumber hook.
  */
-interface UseAbbreviateNumberParams {
+export interface UseAbbreviateNumberParams extends AbbreviateOptions {
     /** The input number or a string representing a number. */
     input: number | string;
     /**
@@ -10,6 +14,12 @@ interface UseAbbreviateNumberParams {
      * Default is 'none'.
      */
     rounding?: "up" | "down" | "none";
+    /**
+     * The case for the suffix.
+     * 'lower' for lowercase, 'upper' for uppercase.
+     * Default is 'upper'.
+     */
+    case?: "lower" | "upper";
 }
 /**
  * A hook that abbreviates large numbers and optionally applies rounding.
@@ -17,5 +27,4 @@ interface UseAbbreviateNumberParams {
  * @param {UseAbbreviateNumberParams} params - Parameters for the hook.
  * @returns {string} - The abbreviated number as a string.
  */
-export declare function useAbbreviateNumber({ input, rounding, }: UseAbbreviateNumberParams): string;
-export {};
+export declare function useAbbreviateNumber(params: UseAbbreviateNumberParams): string;
