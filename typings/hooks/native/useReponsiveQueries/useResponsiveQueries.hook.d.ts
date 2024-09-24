@@ -1,8 +1,11 @@
 import type { ScaledSize } from "react-native";
 export declare enum ViewportCategory {
+    smallMobile = "smallMobile",
     mobile = "mobile",
     tablet = "tablet",
-    desktop = "desktop"
+    desktop = "desktop",
+    largeDesktop = "largeDesktop",
+    tv = "tv"
 }
 export type ScreenOrWindow = "screen" | "window";
 export interface ResponsiveQueryResult {
