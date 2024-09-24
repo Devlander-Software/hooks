@@ -3,9 +3,13 @@ import type { ScaledSize } from "react-native"
 import { Dimensions } from "react-native"
 
 export enum ViewportCategory {
+  smallMobile = "smallMobile",
   mobile = "mobile",
   tablet = "tablet",
   desktop = "desktop",
+  largeDesktop = "largeDesktop",
+  tv = "tv",
+  
 }
 
 export type ScreenOrWindow = "screen" | "window"
