@@ -9,7 +9,6 @@ export enum ViewportCategory {
   desktop = "desktop",
   largeDesktop = "largeDesktop",
   tv = "tv",
-  
 }
 
 export type ScreenOrWindow = "screen" | "window"

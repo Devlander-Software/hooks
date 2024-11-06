@@ -1,4 +1,4 @@
-import { AbbreviateOptions } from "@devlander/utils";
+import type { AbbreviateOptions } from "@devlander/utils";
 /**
  * Options for formatting the abbreviated number's suffix.
  */
