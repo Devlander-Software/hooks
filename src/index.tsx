@@ -47,6 +47,10 @@ export * from "./hooks/native/useViewSize/useViewSize.hook";
  */
 export * from "./hooks/shared/useAbbreviateNumber/useAbbreviateNumber.hook";
 /**
+ * TSDoc for useConsistentKey.hook
+ */
+export * from "./hooks/shared/useConsistentKey/useConsistentKey.hook";
+/**
  * TSDoc for useDebounce.hook
  */
 export * from "./hooks/shared/useDebounce/useDebounce.hook";

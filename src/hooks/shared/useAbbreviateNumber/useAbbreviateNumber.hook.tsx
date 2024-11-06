@@ -1,5 +1,6 @@
 import { useMemo } from "react"
-import { abbreviateNumber, AbbreviateOptions } from "@devlander/utils"
+import type { AbbreviateOptions } from "@devlander/utils"
+import { abbreviateNumber } from "@devlander/utils"
 
 /**
  * Options for formatting the abbreviated number's suffix.
@@ -8,7 +9,7 @@ import { abbreviateNumber, AbbreviateOptions } from "@devlander/utils"
 /**
  * Parameters for useAbbreviateNumber hook.
  */
-export interface UseAbbreviateNumberParams  extends AbbreviateOptions{
+export interface UseAbbreviateNumberParams extends AbbreviateOptions {
   /** The input number or a string representing a number. */
   input: number | string
   /**
