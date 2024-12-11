@@ -7,6 +7,10 @@ export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
  */
 export * from "./hooks/native/useContainerStyle/useContainerStyle.hook";
 /**
+ * TSDoc for useFormManager.hook
+ */
+export * from "./hooks/native/useFormManager/useFormManager.hook";
+/**
  * TSDoc for useGetMediaQueryInfo.hook
  */
 export * from "./hooks/native/useGetMediaQueryInfo/useGetMediaQueryInfo.hook";
