@@ -1,106 +1,109 @@
-import { useEffect, useState, useCallback } from "react"
-import type { ImageURISource } from "react-native"
+import { useEffect, useReducer } from "react";
+import type { ImageURISource } from "react-native";
 
-/**
- * Type definition for a video playback source which could be a number or an object with a URI.
- */
-export type VideoPlaybackSource = number | AVPlaybackSourceObject
+export type VideoPlaybackSource = number | AVPlaybackSourceObject;
 
-/**
- * Represents a source object for AV playback with an optional override for the file extension on Android and headers.
- */
 export type AVPlaybackSourceObject = {
-  uri: string
-  overrideFileExtensionAndroid?: string
-  headers?: Record<string, string>
-}
+  uri: string;
+  overrideFileExtensionAndroid?: string;
+  headers?: Record<string, string>;
+};
 
-/**
- * SrcType can be one of the following:
- * - A string URL
- * - A function returning a string or a promise that resolves to a string
- * - A VideoPlaybackSource object
- * - An ImageURISource object from react-native
- * - null
- */
 export type SrcType =
   | null
   | string
   | VideoPlaybackSource
   | ImageURISource
   | (() => string)
-  | (() => Promise<string>)
+  | (() => Promise<string>);
 
-/**
- * Defines the structure for an error object related to source resolution.
- */
 export interface SrcErrorType {
-  key: string
-  error: Error
+  key: string;
+  error: Error;
 }
 
-/**
- * Defines the return type for the useSrcResolver hook.
- */
 export interface SrcResolverReturnType {
-  loading: boolean
-  errors: SrcErrorType[]
-  resolvedSrc?: string
+  loading: boolean;
+  errors: SrcErrorType[];
+  resolvedSrc?: string;
 }
 
-/**
- * Hook to resolve the source for media playback, handling various source types including remote URLs and local assets.
- * @param src - The source which can be a string, object, function, or null.
- * @returns An object containing the resolved source, loading state, and any errors encountered.
- */
-export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [errors, setErrors] = useState<SrcErrorType[]>([])
-  const [resolvedSrc, setResolvedSrc] = useState<string | undefined>()
+// Define the action types
+type SrcResolverAction =
+  | { type: "FETCH_INIT" }
+  | { type: "FETCH_SUCCESS"; payload: string }
+  | { type: "FETCH_FAILURE"; payload: SrcErrorType };
 
-  const srcStringified = useCallback(
-    () => (src && typeof src === "object" ? JSON.stringify(src) : src),
-    [src],
-  )
-  const srcFunction = useCallback(
-    () => (src && typeof src === "function" ? src.toString() : src),
-    [src],
-  )
+// Define the reducer state
+interface SrcResolverState {
+  loading: boolean;
+  errors: SrcErrorType[];
+  resolvedSrc?: string;
+}
+
+const initialState: SrcResolverState = {
+  loading: false,
+  errors: [],
+  resolvedSrc: undefined,
+};
+
+// Reducer function to handle state transitions
+const srcResolverReducer = (
+  state: SrcResolverState,
+  action: SrcResolverAction
+): SrcResolverState => {
+  switch (action.type) {
+    case "FETCH_INIT":
+      return { ...state, loading: true, errors: [] };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, resolvedSrc: action.payload };
+    case "FETCH_FAILURE":
+      return {
+        ...state,
+        loading: false,
+        errors: [...state.errors, action.payload],
+      };
+    default:
+      return state;
+  }
+};
+
+// Hook to resolve the source for media playback
+export const useSrcResolver = (src: SrcType): SrcResolverReturnType => {
+  const [state, dispatch] = useReducer(srcResolverReducer, initialState);
 
   useEffect(() => {
     const resolveSrc = async () => {
-      setLoading(true)
-      setErrors([])
+      dispatch({ type: "FETCH_INIT" });
 
       try {
         if (typeof src === "string") {
-          setResolvedSrc(src)
-        } else if (src && typeof src === "object" && "uri" in src) {
-          setResolvedSrc(src.uri)
+          dispatch({ type: "FETCH_SUCCESS", payload: src });
+        } else if (src && typeof src === "object" && "uri" in src && src.uri) {
+          // Added `src.uri` check to ensure it's defined
+          dispatch({ type: "FETCH_SUCCESS", payload: src.uri });
         } else if (typeof src === "function") {
-          const result = await src()
-          setResolvedSrc(result)
+          const result = await src();
+          dispatch({ type: "FETCH_SUCCESS", payload: result });
         }
       } catch (error) {
-        console.error("Error resolving source:", error)
-        setErrors((prevErrors) => [
-          ...prevErrors,
-          {
+        console.error("Error resolving source:", error);
+        dispatch({
+          type: "FETCH_FAILURE",
+          payload: {
             key: "resolve",
             error: error instanceof Error ? error : new Error(String(error)),
           },
-        ])
-      } finally {
-        setLoading(false)
+        });
       }
-    }
+    };
 
-    resolveSrc()
-  }, [src, srcStringified, srcFunction])
+    resolveSrc();
+  }, [src]); // Track `src` directly
 
   return {
-    loading,
-    errors,
-    resolvedSrc,
-  }
-}
+    loading: state.loading,
+    errors: state.errors,
+    resolvedSrc: state.resolvedSrc,
+  };
+};
