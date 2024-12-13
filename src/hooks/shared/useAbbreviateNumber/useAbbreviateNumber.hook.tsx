@@ -33,12 +33,12 @@ export interface UseAbbreviateNumberParams extends AbbreviateOptions {
  * @returns {string} - The abbreviated number as a string.
  */
 export function useAbbreviateNumber(params: UseAbbreviateNumberParams): string {
-  const { input, rounding = "none", case: caseOption = "upper" } = params || {};
+  const { input, rounding = "none", case: caseOption = "upper" } = params || {}
 
   const abbreviated = useMemo(() => {
-    let result = abbreviateNumber(input, { rounding, case: caseOption });
-    return result.replace(/\.0(?=[A-Za-z])/, ""); // Remove `.0` if present
-  }, [input, rounding, caseOption]);
+    const result = abbreviateNumber(input, { rounding, case: caseOption })
+    return result.replace(/\.0(?=[A-Za-z])/, "") // Remove `.0` if present
+  }, [input, rounding, caseOption])
 
-  return abbreviated;
+  return abbreviated
 }

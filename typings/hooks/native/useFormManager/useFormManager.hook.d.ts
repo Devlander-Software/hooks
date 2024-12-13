@@ -8,14 +8,14 @@ export interface FormState<TFormValues> {
  * Action types for updating form state in the reducer
  */
 export type FormAction<TFormValues> = {
-    type: 'SET_FIELD';
+    type: "SET_FIELD";
     field: keyof TFormValues;
     value: TFormValues[keyof TFormValues];
 } | {
-    type: 'SET_ERRORS';
+    type: "SET_ERRORS";
     errors: Partial<Record<keyof TFormValues, string>>;
 } | {
-    type: 'RESET_FORM';
+    type: "RESET_FORM";
     values: TFormValues;
 };
 /**
