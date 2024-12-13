@@ -1,6 +1,6 @@
 {
   "name": "@devlander/hooks",
-  "version": "0.0.208",
+  "version": "0.0.209",
   "description": "Hooks used in projects",
   "main": "dist/umd/index.js",
   "browser": "dist/umd/index.js",
@@ -120,7 +120,7 @@
     "typedoc": "^0.26.5"
   },
   "dependencies": {
-    "@devlander/utils": "^0.0.56",
+    "@devlander/utils": "^0.0.84",
     "jsdom-global": "^3.0.2"
   }
 }

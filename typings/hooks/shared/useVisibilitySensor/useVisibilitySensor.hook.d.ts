@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { View } from "react-native";
 /**
  * A hook that monitors the visibility of a native React component within the viewport.
@@ -15,8 +14,8 @@ import type { View } from "react-native";
  * <View ref={viewRef} />
  */
 export declare enum VisibilityOffset {
-    FULL = 1,
-    PARTIAL = 0.5,
+    FULL = 1,// Full visibility required
+    PARTIAL = 0.5,// 50% of the component needs to be visible
     MINIMAL = 0.25
 }
 export interface UseVisibilitySensorOptions<T> {
