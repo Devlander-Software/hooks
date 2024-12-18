@@ -1,16 +1,17 @@
-import React, { createContext, useContext } from "react";
-import type { PropsWithChildren } from "react";
-import type { AuthState } from "../reducers/auth.reducer";
-import { useAuthReducer } from "../reducers/auth.reducer";
-
+import React, { createContext, useContext } from "react"
+import type { PropsWithChildren } from "react"
+import type { AuthState } from "../reducers/auth.reducer"
+import { useAuthReducer } from "../reducers/auth.reducer"
 
 // Define separate contexts
-export const AuthStateContext = createContext<AuthState | null>(null);
-export const AuthDispatchContext = createContext<React.Dispatch<any> | null>(null);
+export const AuthStateContext = createContext<AuthState | null>(null)
+export const AuthDispatchContext = createContext<React.Dispatch<any> | null>(
+  null,
+)
 
 // AuthProvider: Provides state and dispatch separately
 export function AuthProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = useAuthReducer();
+  const [state, dispatch] = useAuthReducer()
 
   return (
     <AuthStateContext.Provider value={state}>
@@ -18,24 +19,23 @@ export function AuthProvider({ children }: PropsWithChildren) {
         {children}
       </AuthDispatchContext.Provider>
     </AuthStateContext.Provider>
-  );
+  )
 }
-
 
 // Hook for accessing auth state
 export function useAuthState() {
-  const context = useContext(AuthStateContext);
+  const context = useContext(AuthStateContext)
   if (context === null) {
-    throw new Error('useAuthState must be used within an AuthProvider');
+    throw new Error("useAuthState must be used within an AuthProvider")
   }
-  return context;
+  return context
 }
 
 // Hook for accessing auth dispatch
 export function useAuthDispatch() {
-  const context = useContext(AuthDispatchContext);
+  const context = useContext(AuthDispatchContext)
   if (context === null) {
-    throw new Error('useAuthDispatch must be used within an AuthProvider');
+    throw new Error("useAuthDispatch must be used within an AuthProvider")
   }
-  return context;
+  return context
 }

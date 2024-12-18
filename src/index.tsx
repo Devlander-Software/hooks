@@ -115,6 +115,10 @@ export * from "./hooks/web/usePreventDefault/usePreventDefault.hook";
  */
 export * from "./hooks/web/useScrollControl/useScrollControl.hook";
 /**
+ * TSDoc for auth.provider
+ */
+export * from "./providers/auth.provider";
+/**
  * TSDoc for auth.reducer
  */
 export * from "./reducers/auth.reducer";

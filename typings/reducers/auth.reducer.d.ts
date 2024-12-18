@@ -8,7 +8,7 @@ export type AuthState = {
     session: string | null;
     isGuest: boolean;
     isUser: boolean;
-    status: 'initializing' | 'loggingIn' | 'loggedIn' | 'loggingOut' | 'loggedOut' | 'refreshing';
+    status: "initializing" | "loggingIn" | "loggedIn" | "loggingOut" | "loggedOut" | "refreshing";
     error: string | null;
     loginError: string | null;
     logoutError: string | null;
@@ -18,36 +18,36 @@ export type AuthState = {
 };
 export declare const initialAuthState: AuthState;
 export type AuthAction = {
-    type: 'INITIALIZING';
+    type: "INITIALIZING";
 } | {
-    type: 'INITIALIZE';
+    type: "INITIALIZE";
     payload: {
         session: string | null;
         isGuest: boolean;
     };
 } | {
-    type: 'AUTH_SUCCESS';
+    type: "AUTH_SUCCESS";
     payload: {
         session: string;
-        actionType: 'login' | 'register';
+        actionType: "login" | "register";
     };
 } | {
-    type: 'LOGOUT_SUCCESS';
+    type: "LOGOUT_SUCCESS";
 } | {
-    type: 'REFRESH_SUCCESS';
+    type: "REFRESH_SUCCESS";
 } | {
-    type: 'CONTINUE_AS_GUEST_SUCCESS';
+    type: "CONTINUE_AS_GUEST_SUCCESS";
 } | {
-    type: 'SET_LOADING';
+    type: "SET_LOADING";
     payload: keyof AuthState;
 } | {
-    type: 'ERROR';
+    type: "ERROR";
     payload: {
         method: keyof AuthState;
         message: string;
     };
 } | {
-    type: 'RESET';
+    type: "RESET";
 };
 export declare function authReducer(state: AuthState, action: AuthAction): AuthState;
 export declare function useAuthReducer(): readonly [AuthState, import("react").Dispatch<AuthAction>];
