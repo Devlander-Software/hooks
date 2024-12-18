@@ -9,7 +9,7 @@ const main = () => {
         includeExtensions: ['.ts', '.tsx', '.tsx', '.hook.tsx'],
 
         rootDir: './src',
-        allowedExtensions: ['.ts', '.tsx', '.tsx', '.hook.tsx', '.reducer.ts', '.reducer.tsx', '.enum.ts', '.enum.tsx', '.interface.ts', '.interface.tsx', '.type.ts', '.type.tsx', '.action.ts', '.action.tsx', '.selector.ts', '.selector.tsx', '.query.ts', '.query.tsx', '.mutation.ts', '.mutation.tsx', '.service.ts', '.service'],
+        allowedExtensions: ['.ts', '.tsx', '.tsx', '.hook.tsx', '.reducer.ts', '.reducer.tsx', '.enum.ts', '.enum.tsx', '.interface.ts', '.interface.tsx', '.type.ts', '.type.tsx', '.action.ts', '.action.tsx', '.selector.ts', '.selector.tsx', '.query.ts', '.query.tsx', '.mutation.ts', '.mutation.tsx', '.service.ts', '.service', ".provider", '.provider.ts', '.provider.tsx', '.context.ts', '.context.tsx', '.hook.ts', '.hook.ts'],
         exportMode: 'both',
         outputFileName: 'index',
         outputFilenameExtension: '.tsx',
