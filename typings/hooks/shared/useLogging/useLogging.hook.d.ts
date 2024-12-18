@@ -1,4 +1,4 @@
-import { LoggingState } from '../../../types/logging-severity.type';
+import type { LoggingState } from "../../../types/logging-severity.type";
 interface UseLoggingConfig {
     loggers: {
         log: (message?: any, ...optionalParams: any[]) => void;
