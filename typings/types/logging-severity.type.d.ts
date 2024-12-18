@@ -1,4 +1,4 @@
-export type Severity = 'error' | 'info' | 'success' | 'warning';
+export type Severity = "error" | "info" | "success" | "warning";
 /**
  * The structure for logs categorized by severity.
  */
@@ -39,17 +39,17 @@ export interface LoggingState {
  * The structure for actions that modify logging state.
  */
 export type LoggingAction = {
-    type: 'SET_LOGS';
+    type: "SET_LOGS";
     payload: {
         logs: Record<string, any>;
         severity: Severity;
         methodName?: string;
     };
 } | {
-    type: 'CLEAR_LOGS';
+    type: "CLEAR_LOGS";
     payload: Severity;
 } | {
-    type: 'TOGGLE_TOAST';
+    type: "TOGGLE_TOAST";
     payload: {
         severity: Severity;
         open: boolean;
@@ -57,7 +57,7 @@ export type LoggingAction = {
         autoHideDuration?: number;
     };
 } | {
-    type: 'SET_LOADING';
+    type: "SET_LOADING";
     payload: {
         id: string;
         loading: boolean;

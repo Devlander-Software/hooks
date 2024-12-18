@@ -23,6 +23,10 @@ export * from "./hooks/native/useImageStyle/useImageStyle.hook";
  */
 export * from "./hooks/native/useMergedObjects/useMergedObjects.hook";
 /**
+ * TSDoc for useNextTextInputFocus.hook
+ */
+export * from "./hooks/native/useNextTextInputFocus/useNextTextInputFocus.hook";
+/**
  * TSDoc for useOnPressByStyle.hook
  */
 export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
@@ -110,6 +114,10 @@ export * from "./hooks/web/usePreventDefault/usePreventDefault.hook";
  * TSDoc for useScrollControl.hook
  */
 export * from "./hooks/web/useScrollControl/useScrollControl.hook";
+/**
+ * TSDoc for auth.reducer
+ */
+export * from "./reducers/auth.reducer";
 /**
  * TSDoc for logging.reducer
  */
