@@ -1,19 +1,19 @@
-import { Platform } from "react-native";
-import { useDeviceResponsiveState } from "../useDeviceResponsiveState/useDeviceResponsiveState.hook";
+import { Platform } from "react-native"
+import { useDeviceResponsiveState } from "../useDeviceResponsiveState/useDeviceResponsiveState.hook"
 
 export interface MediaQueryBreakpointConfig {
-  xSmall: boolean;
-  small: boolean;
-  medium: boolean;
-  large: boolean;
-  xLarge: boolean;
-  xxLarge: boolean;
-  platform: typeof Platform.OS;
+  xSmall: boolean
+  small: boolean
+  medium: boolean
+  large: boolean
+  xLarge: boolean
+  xxLarge: boolean
+  platform: typeof Platform.OS
 }
 
 export const useGetMediaQueryInfo = (): MediaQueryBreakpointConfig => {
-  const { dimensions } = useDeviceResponsiveState(); // Use the base hook
-  const { width } = dimensions;
+  const { dimensions } = useDeviceResponsiveState() // Use the base hook
+  const { width } = dimensions
 
   // Calculate granular breakpoints based on width
   return {
@@ -24,5 +24,5 @@ export const useGetMediaQueryInfo = (): MediaQueryBreakpointConfig => {
     large: width >= 1024 && width < 1280,
     xLarge: width >= 1280 && width < 1536,
     xxLarge: width >= 1536,
-  };
-};
+  }
+}

@@ -1,4 +1,3 @@
-import { isEmpty } from "@devlander/utils"
 import { useMemo } from "react"
 import type { ViewStyle } from "react-native"
 

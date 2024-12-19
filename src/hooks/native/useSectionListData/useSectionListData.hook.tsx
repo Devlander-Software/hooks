@@ -1,114 +1,89 @@
-import { useMemo, useEffect } from "react";
-import type { SectionListData, SectionListProps } from "react-native";
-import React from "react";
+import { useMemo, useEffect } from "react"
 
-/**
- * Base section props extending React Native SectionListProps
- */
-export interface SectionBase<ItemT>
-  extends SectionListProps<ItemT> {
-  /**
-   * Rendered in between each section.
-   */
-  getItemLayout?:
-    | ( (
-        data: SectionListData<ItemT>[] | null,
-        index: number,
-      ) => { length: number; offset: number; index: number })
-    | undefined;
+export interface DefaultSectionItem {
+  id: string | number
+  title: string
+  Icon: () => JSX.Element
+  onPress: () => void
 }
 
 /**
- * Section item with generic DataType
+ * Generic Section Item
  */
-export interface SectionItem<DataType> {
-  title: string;
-  data: DataType[];
+export interface SectionItem<DataType = DefaultSectionItem> {
+  title: string
+  data: DataType[]
 }
 
 /**
- * Configuration for SectionList
+ * Configuration for the SectionList
  */
-export interface SectionListConfig {
-  title: string;
-  items: {
-    id: string;
-    title: string;
-    icon: () => JSX.Element; // Function returning a React Element for rendering icons
-    onPress: () => void;
-  }[];
+export interface SectionListConfig<ItemT> {
+  title: string
+  items: ItemT[]
 }
 
 /**
- * Return type for useSectionListData hook
+ * Hook return type
  */
 interface UseSectionListDataReturn<DataType> {
-  sections: SectionItem<DataType>[];
+  sections: SectionItem<DataType>[]
 }
 
 /**
- * Hook to generate section list data for React Native SectionList.
- *
- * @template ItemType - The type of each item in the section.
- * @param {SectionListConfig[]} configs - Configuration for the sections.
- * @param {Object} [options] - Optional transformation and fallback settings.
- * @param {(item: ItemType) => unknown} [options.transformItem] - Function to transform each item.
- * @param {(title: string) => string} [options.transformHeader] - Function to transform section headers.
- * @param {SectionItem<unknown>[]} [options.emptyStateFallback] - Fallback sections for empty configs.
- * @param {boolean} [options.debug] - Flag to enable or disable debugging.
- * @returns {UseSectionListDataReturn<ItemType>} The transformed section list data.
+ * Generic hook for creating SectionList data
  */
-export const useSectionListData = <
-  ItemType extends { id: string; title: string; onPress: () => void }
->(
-  configs: SectionListConfig[],
+export const useSectionListData = <ItemType extends { id: string }>({
+  configs,
+  options,
+}: {
+  configs: SectionListConfig<ItemType>[]
   options?: {
-    transformItem?: (item: ItemType) => unknown;
-    transformHeader?: (title: string) => string;
-    emptyStateFallback?: SectionItem<ItemType>[];
-    debug?: boolean; // Debugging flag
-  },
-): UseSectionListDataReturn<ItemType> => {
-  const { transformItem, transformHeader, emptyStateFallback, debug } = options || {};
+    transformItem?: (item: ItemType) => unknown
+    transformHeader?: (title: string) => string
+    emptyStateFallback?: SectionItem<ItemType>[]
+    debug?: boolean
+  }
+}): UseSectionListDataReturn<ItemType> => {
+  const { transformItem, transformHeader, emptyStateFallback, debug } =
+    options || {}
 
-  // Ensure configs is stable for memoization
-  const memoizedConfigs = useMemo(() => [...configs], [configs]);
+  const memoizedConfigs = useMemo(() => [...configs], [configs])
 
-  // Development-time validation for configs
   useEffect(() => {
     if (debug) {
       memoizedConfigs.forEach((config, index) => {
         if (!config.title || !Array.isArray(config.items)) {
           console.error(
             `Invalid config at index ${index}: Expected a title and items array.`,
-          );
+          )
         } else {
           config.items.forEach((item, itemIndex) => {
-            if (!item.id || !item.title || typeof item.onPress !== "function") {
+            if (!item.id) {
               console.error(
-                `Invalid item at index ${itemIndex} in section "${config.title}": 
-                 Expected an id, title, and onPress function.`,
-              );
+                `Invalid item at index ${itemIndex} in section "${config.title}": Expected an id.`,
+              )
             }
-          });
+          })
         }
-      });
+      })
     }
-  }, [memoizedConfigs, debug]);
+  }, [memoizedConfigs, debug])
 
-  // Transform configs into sections
   const sections = useMemo(() => {
     if (!memoizedConfigs.length && emptyStateFallback) {
-      return emptyStateFallback as SectionItem<ItemType>[];
+      return emptyStateFallback as SectionItem<ItemType>[]
     }
 
     return memoizedConfigs.map((config) => ({
       title: transformHeader ? transformHeader(config.title) : config.title,
       data: config.items.map((item) =>
-        transformItem ? (transformItem(item as unknown as ItemType) as ItemType) : (item as unknown as ItemType),
+        transformItem
+          ? (transformItem(item as ItemType) as ItemType)
+          : (item as ItemType),
       ),
-    }));
-  }, [memoizedConfigs, transformItem, transformHeader, emptyStateFallback]);
+    }))
+  }, [memoizedConfigs, transformItem, transformHeader, emptyStateFallback])
 
-  return { sections };
-};
+  return { sections }
+}
