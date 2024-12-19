@@ -7,6 +7,10 @@ export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
  */
 export * from "./hooks/native/useContainerStyle/useContainerStyle.hook";
 /**
+ * TSDoc for useDeviceResponsiveState.hook
+ */
+export * from "./hooks/native/useDeviceResponsiveState/useDeviceResponsiveState.hook";
+/**
  * TSDoc for useFormManager.hook
  */
 export * from "./hooks/native/useFormManager/useFormManager.hook";
@@ -18,6 +22,10 @@ export * from "./hooks/native/useGetMediaQueryInfo/useGetMediaQueryInfo.hook";
  * TSDoc for useImageStyle.hook
  */
 export * from "./hooks/native/useImageStyle/useImageStyle.hook";
+/**
+ * TSDoc for useLeafShapeStyle.hook
+ */
+export * from "./hooks/native/useLeafShapeStyle/useLeafShapeStyle.hook";
 /**
  * TSDoc for useMergedObjects.hook
  */
@@ -35,9 +43,13 @@ export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
  */
 export * from "./hooks/native/useOrientation/useOrientation.hook";
 /**
- * TSDoc for useResponsiveQueries.hook
+ * TSDoc for useResponsiveColumns.hook
  */
-export * from "./hooks/native/useReponsiveQueries/useResponsiveQueries.hook";
+export * from "./hooks/native/useReponsiveColumns/useResponsiveColumns.hook";
+/**
+ * TSDoc for useSectionListData.hook
+ */
+export * from "./hooks/native/useSectionListData/useSectionListData.hook";
 /**
  * TSDoc for useSrcResolver.hook
  */
@@ -142,6 +154,10 @@ export * from "./types/navigation-key.enum";
  * TSDoc for on-click-by-style-options.type
  */
 export * from "./types/on-click-by-style-options.type";
+/**
+ * TSDoc for responsive-queries.type
+ */
+export * from "./types/responsive-queries.type";
 /**
  * TSDoc for screen-size.type
  */

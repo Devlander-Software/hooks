@@ -1,64 +1,70 @@
+
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
-import fs from "fs";
 import { terser } from "rollup-plugin-terser";
+import alias from "@rollup/plugin-alias";
+import fs from "fs";
 
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
-const extensions = [".js", ".jsx", ".ts", ".tsx",  ".native.js"];
+const extensions = [".js", ".jsx", ".ts", ".tsx", ".native.js"];
 
-// Exclude certain dependencies from being bundled
+// Define external dependencies to exclude from the bundle
 const external = [
   "react",
   "react-dom",
-  "react-native-web",  // Add more peer dependencies here
-  "react-native"
+  "react-native",
+  "react-native-web",
 ];
 
+// Map external dependencies to their global variable names
 const globals = {
   react: "React",
-  "react-native": "reactNative",
-  "react-native-web": "reactNativeWeb"
-}
-
-const makeExternalPredicate = externalArr => {
-  if (externalArr.length === 0) {
-    return () => false;
-  }
-  const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
-  return id => pattern.test(id);
+  "react-dom": "ReactDOM",
+  "react-native": "ReactNative",
+  "react-native-web": "ReactNativeWeb",
+  "react/jsx-runtime": "jsxRuntime",
 };
 
+// Predicate function to determine external modules
+const makeExternalPredicate = (externalArr) => {
+  if (!externalArr.length) return () => false;
+  const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
+  return (id) => pattern.test(id);
+};
 
 export default {
-  input: "src/index.tsx", // Your entry point
+  input: "src/index.tsx", // Entry point for the library
   output: [
     {
-      file: packageJson.main,
+      file: packageJson.browser,
       format: "umd",
       name: "DevlanderHooks", // Replace with your library's name
-      globals: globals,
+      globals,
+      sourcemap: true,
+    },
+    {
+      file: packageJson.main,
+      format: "cjs",
+      globals,
       sourcemap: true,
     },
     {
       file: packageJson.module,
       format: "esm",
-      globals: globals,
-
       sourcemap: true,
-    }
+    },
   ],
-
   external: makeExternalPredicate(external),
   plugins: [
-    // alias({
-    //   entries: [
-    //     { find: "react-native", replacement: "react-native-web" },
-    //   ],
-    // }),
+    alias({
+      entries: [
+        { find: "react-native", replacement: "react-native-web" },
+      ],
+    }),
     nodeResolve({
       extensions,
       preferBuiltins: true,
@@ -77,8 +83,10 @@ export default {
         "@babel/preset-typescript",
       ],
     }),
-    typescript(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+    }),
     json(),
-    terser(), // Use terser for minification
+    terser(), // Minify the output
   ],
 };
