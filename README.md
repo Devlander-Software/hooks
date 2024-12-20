@@ -29,6 +29,8 @@
 </a> 
 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e01eb85-7cd6-41a7-9f23-ec7676404a94/deploy-status)](https://app.netlify.com/sites/devlander-react-hooks/deploys)
+
 # Devlander React Native Hooks Collection
 
 ## Introduction
