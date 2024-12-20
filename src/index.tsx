@@ -89,7 +89,7 @@ export * from "./hooks/shared/useLogging/useLogging.hook";
 /**
  * TSDoc for useScreenDimensions.hook
  */
-export * from "./hooks/shared/useScreenDimensions/useScreenDimensions.hook";
+export * from "./hooks/shared/useViewportInfo/useViewportInfo";
 /**
  * TSDoc for useVisibilitySensor.hook
  */
