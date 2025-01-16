@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import type { ScaledSize } from "react-native"
 import { Dimensions } from "react-native"
 import type {
-  MediaQueryConfig,
   ResponsiveQueryConfig,
   ResponsiveQueryResult,
 } from "../../../types/responsive-queries.type"
@@ -14,8 +13,8 @@ export const useDeviceResponsiveState = (
 ): ResponsiveQueryResult => {
   const { forcePortrait, forceLandscape, mediaQueryConfig } = config
 
-  // Fix: Added missing colon after `extraSmall` to define the default media query config
-  const defaultMediaQueryConfig: MediaQueryConfig = useMemo(
+  // Static default media query config
+  const defaultMediaQueryConfig = useMemo(
     () => ({
       extraSmall: { maxWidth: 360 },
       small: { minWidth: 360, maxWidth: 640 },
@@ -26,41 +25,49 @@ export const useDeviceResponsiveState = (
     [],
   )
 
-  // Apply custom media query configuration if provided
-  const appliedMediaQueryConfig = useMemo(() => {
-    return {
+  // Merge default and custom media query configurations
+  const appliedMediaQueryConfig = useMemo(
+    () => ({
       ...defaultMediaQueryConfig,
       ...mediaQueryConfig,
-    }
-  }, [mediaQueryConfig, defaultMediaQueryConfig])
+    }),
+    [defaultMediaQueryConfig, mediaQueryConfig],
+  )
 
-  // State to track the current screen or window dimensions
-  const [dimensions, setDimensions] = useState<ScaledSize>(
+  // Initialize dimensions lazily
+  const [dimensions, setDimensions] = useState<ScaledSize>(() =>
     Dimensions.get(triggerBy.includes("window") ? "window" : "screen"),
   )
 
-  // Callback to handle dimension changes
+  // Debounced handler for dimension changes
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
   const onChange = useCallback(
     ({ window, screen }: { window: ScaledSize; screen: ScaledSize }) => {
-      setDimensions(triggerBy.includes("window") ? window : screen)
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
+      timeoutRef.current = setTimeout(() => {
+        setDimensions(triggerBy.includes("window") ? window : screen)
+      }, 100)
     },
     [triggerBy],
   )
 
-  // Set up an effect to listen for dimension changes
+  // Subscribe to dimension changes
   useEffect(() => {
     const subscription = Dimensions.addEventListener("change", onChange)
     return () => subscription.remove()
   }, [onChange])
 
-  // Determine if the device is in portrait or landscape mode
+  // Calculate orientation
   const isPortrait = useMemo(() => {
     if (forcePortrait) return true
     if (forceLandscape) return false
     return dimensions.height > dimensions.width
   }, [dimensions, forcePortrait, forceLandscape])
 
-  // Determine the viewport category based on the current width
+  // Determine viewport category
   const viewportCategory = useMemo(() => {
     const { width } = dimensions
     const { extraSmall, small, medium, large, extraLarge } =
@@ -91,7 +98,7 @@ export const useDeviceResponsiveState = (
     return ViewportCategory.ExtraLarge
   }, [dimensions, appliedMediaQueryConfig])
 
-  // Return the responsive state
+  // Return responsive state
   return useMemo(
     () => ({
       isExtraSmall: viewportCategory === ViewportCategory.ExtraSmall,
