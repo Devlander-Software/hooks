@@ -1,4 +1,8 @@
 /**
+ * TSDoc for useClientOnlyValue
+ */
+export * from "./hooks/native/useClientOnlyValue/useClientOnlyValue";
+/**
  * TSDoc for useColorsAndLocations.hook
  */
 export * from "./hooks/native/useColorsAndLocations/useColorsAndLocations.hook";
@@ -67,6 +71,10 @@ export * from "./hooks/native/useViewSize/useViewSize.hook";
  */
 export * from "./hooks/shared/useAbbreviateNumber/useAbbreviateNumber.hook";
 /**
+ * TSDoc for useConditionalCallback.hook
+ */
+export * from "./hooks/shared/useConditionalCallback/useConditionalCallback.hook";
+/**
  * TSDoc for useConsistentKey.hook
  */
 export * from "./hooks/shared/useConsistentKey/useConsistentKey.hook";
@@ -87,9 +95,13 @@ export * from "./hooks/shared/useIsMounted/useIsMounted.hook";
  */
 export * from "./hooks/shared/useLogging/useLogging.hook";
 /**
- * TSDoc for useScreenDimensions.hook
+ * TSDoc for useResponsive.hook
  */
-export * from "./hooks/shared/useScreenDimensions/useScreenDimensions.hook";
+export * from "./hooks/shared/useResponsive/useResponsive.hook";
+/**
+ * TSDoc for useViewportInfo.hook
+ */
+export * from "./hooks/shared/useViewportInfo/useViewportInfo.hook";
 /**
  * TSDoc for useVisibilitySensor.hook
  */
