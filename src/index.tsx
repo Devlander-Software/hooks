@@ -47,6 +47,10 @@ export * from "./hooks/native/useOnPressByStyle/useOnPressByStyle.hook";
  */
 export * from "./hooks/native/useOrientation/useOrientation.hook";
 /**
+ * TSDoc for useOverflowAdjuster.hook
+ */
+export * from "./hooks/native/useOverflowAdjuster/useOverflowAdjuster.hook";
+/**
  * TSDoc for useResponsiveColumns.hook
  */
 export * from "./hooks/native/useReponsiveColumns/useResponsiveColumns.hook";
@@ -94,6 +98,10 @@ export * from "./hooks/shared/useIsMounted/useIsMounted.hook";
  * TSDoc for useLogging.hook
  */
 export * from "./hooks/shared/useLogging/useLogging.hook";
+/**
+ * TSDoc for useMergedProps.hook
+ */
+export * from "./hooks/shared/useMergedProps/useMergedProps.hook";
 /**
  * TSDoc for useResponsive.hook
  */
