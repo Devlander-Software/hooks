@@ -30,5 +30,6 @@ Thumbs.db
 dist
 .env
 
-
+# Yarn Berry: cache and install state (never commit - was in history and bloated repo)
+.yarn/
 .yarn/*
